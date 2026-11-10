@@ -1,0 +1,205 @@
+==========================================================================================
+COTTONCARE EXTERNAL EVALUATION ERROR ANALYSIS & DISCREPANCY AUDIT
+==========================================================================================
+Dataset: Independent External Cotton Leaf Dataset (OOD)
+Evaluated Samples: 1,290 images across 3 matching classes
+  - Bacterial Blight: 448 images
+  - Curl Virus:       417 images
+  - Healthy Leaf:     425 images
+Protocol: 7-class model space evaluation (Predictions into 4 other classes count as incorrect)
+==========================================================================================
+
+================================================================================
+MODEL: CottonNet V2
+================================================================================
+  Overall External Accuracy: 62.25%
+  External Macro F1:         69.94%
+  External Weighted F1:      69.73%
+  Internal Macro F1:         96.34%
+  Generalization Gap (Drop): +26.40%
+
+  Per-Class Performance (Target 3 Classes):
+  ---------------------------------------------------------------------------
+  Class                  Precision    Recall       F1-Score     Support    TP    
+  ---------------------------------------------------------------------------
+  Bacterial Blight       0.9234       0.4308       0.5875       448        193   
+  Curl Virus             0.7185       0.6978       0.7080       417        291   
+  Healthy Leaf           0.8622       0.7506       0.8025       425        319   
+  ---------------------------------------------------------------------------
+
+  Confusion Matrix (Actual Rows x Target Predicted Columns):
+                         [Pred BB]   [Pred CV]   [Pred HL]   [Pred OOD 4 Classes]
+    Actual Bacterial Blight:      193          69          15                 171
+    Actual Curl Virus:             15         291          36                  75
+    Actual Healthy Leaf:            1          45         319                  60
+
+  Top Confusion Pairs:
+     1. Bacterial Blight -> Other 4 Internal Classes (OOD): 171 images (38.17% of actual)
+     2. Curl Virus -> Other 4 Internal Classes (OOD): 75 images (17.99% of actual)
+     3. Bacterial Blight -> Curl Virus: 69 images (15.40% of actual)
+     4. Healthy Leaf -> Other 4 Internal Classes (OOD): 60 images (14.12% of actual)
+     5. Healthy Leaf -> Curl Virus: 45 images (10.59% of actual)
+     6. Curl Virus -> Healthy Leaf: 36 images (8.63% of actual)
+     7. Bacterial Blight -> Healthy Leaf: 15 images (3.35% of actual)
+     8. Curl Virus -> Bacterial Blight: 15 images (3.60% of actual)
+     9. Healthy Leaf -> Bacterial Blight: 1 images (0.24% of actual)
+
+
+================================================================================
+MODEL: Swin-T
+================================================================================
+  Overall External Accuracy: 73.18%
+  External Macro F1:         79.83%
+  External Weighted F1:      79.72%
+  Internal Macro F1:         97.70%
+  Generalization Gap (Drop): +17.87%
+
+  Per-Class Performance (Target 3 Classes):
+  ---------------------------------------------------------------------------
+  Class                  Precision    Recall       F1-Score     Support    TP    
+  ---------------------------------------------------------------------------
+  Bacterial Blight       0.9963       0.6027       0.7510       448        270   
+  Curl Virus             0.7724       0.9113       0.8361       417        380   
+  Healthy Leaf           0.9703       0.6918       0.8077       425        294   
+  ---------------------------------------------------------------------------
+
+  Confusion Matrix (Actual Rows x Target Predicted Columns):
+                         [Pred BB]   [Pred CV]   [Pred HL]   [Pred OOD 4 Classes]
+    Actual Bacterial Blight:      270          32           7                 139
+    Actual Curl Virus:              0         380           2                  35
+    Actual Healthy Leaf:            1          80         294                  50
+
+  Top Confusion Pairs:
+     1. Bacterial Blight -> Other 4 Internal Classes (OOD): 139 images (31.03% of actual)
+     2. Healthy Leaf -> Curl Virus: 80 images (18.82% of actual)
+     3. Healthy Leaf -> Other 4 Internal Classes (OOD): 50 images (11.76% of actual)
+     4. Curl Virus -> Other 4 Internal Classes (OOD): 35 images (8.39% of actual)
+     5. Bacterial Blight -> Curl Virus: 32 images (7.14% of actual)
+     6. Bacterial Blight -> Healthy Leaf: 7 images (1.56% of actual)
+     7. Curl Virus -> Healthy Leaf: 2 images (0.48% of actual)
+     8. Healthy Leaf -> Bacterial Blight: 1 images (0.24% of actual)
+
+
+================================================================================
+MODEL: ViT-B/16
+================================================================================
+  Overall External Accuracy: 71.63%
+  External Macro F1:         76.58%
+  External Weighted F1:      76.42%
+  Internal Macro F1:         98.25%
+  Generalization Gap (Drop): +21.67%
+
+  Per-Class Performance (Target 3 Classes):
+  ---------------------------------------------------------------------------
+  Class                  Precision    Recall       F1-Score     Support    TP    
+  ---------------------------------------------------------------------------
+  Bacterial Blight       0.9874       0.5246       0.6851       448        235   
+  Curl Virus             0.7303       0.8441       0.7831       417        352   
+  Healthy Leaf           0.8686       0.7929       0.8290       425        337   
+  ---------------------------------------------------------------------------
+
+  Confusion Matrix (Actual Rows x Target Predicted Columns):
+                         [Pred BB]   [Pred CV]   [Pred HL]   [Pred OOD 4 Classes]
+    Actual Bacterial Blight:      235          72           6                 135
+    Actual Curl Virus:              3         352          45                  17
+    Actual Healthy Leaf:            0          58         337                  30
+
+  Top Confusion Pairs:
+     1. Bacterial Blight -> Other 4 Internal Classes (OOD): 135 images (30.13% of actual)
+     2. Bacterial Blight -> Curl Virus: 72 images (16.07% of actual)
+     3. Healthy Leaf -> Curl Virus: 58 images (13.65% of actual)
+     4. Curl Virus -> Healthy Leaf: 45 images (10.79% of actual)
+     5. Healthy Leaf -> Other 4 Internal Classes (OOD): 30 images (7.06% of actual)
+     6. Curl Virus -> Other 4 Internal Classes (OOD): 17 images (4.08% of actual)
+     7. Bacterial Blight -> Healthy Leaf: 6 images (1.34% of actual)
+     8. Curl Virus -> Bacterial Blight: 3 images (0.72% of actual)
+
+
+================================================================================
+MODEL: YOLO26s-cls
+================================================================================
+  Overall External Accuracy: 54.73%
+  External Macro F1:         64.56%
+  External Weighted F1:      64.56%
+  Internal Macro F1:         93.41%
+  Generalization Gap (Drop): +28.85%
+
+  Per-Class Performance (Target 3 Classes):
+  ---------------------------------------------------------------------------
+  Class                  Precision    Recall       F1-Score     Support    TP    
+  ---------------------------------------------------------------------------
+  Bacterial Blight       0.9781       0.4978       0.6598       448        223   
+  Curl Virus             0.6833       0.6882       0.6858       417        287   
+  Healthy Leaf           0.8235       0.4612       0.5913       425        196   
+  ---------------------------------------------------------------------------
+
+  Confusion Matrix (Actual Rows x Target Predicted Columns):
+                         [Pred BB]   [Pred CV]   [Pred HL]   [Pred OOD 4 Classes]
+    Actual Bacterial Blight:      223          35           4                 186
+    Actual Curl Virus:              5         287          38                  87
+    Actual Healthy Leaf:            0          98         196                 131
+
+  Top Confusion Pairs:
+     1. Bacterial Blight -> Other 4 Internal Classes (OOD): 186 images (41.52% of actual)
+     2. Healthy Leaf -> Other 4 Internal Classes (OOD): 131 images (30.82% of actual)
+     3. Healthy Leaf -> Curl Virus: 98 images (23.06% of actual)
+     4. Curl Virus -> Other 4 Internal Classes (OOD): 87 images (20.86% of actual)
+     5. Curl Virus -> Healthy Leaf: 38 images (9.11% of actual)
+     6. Bacterial Blight -> Curl Virus: 35 images (7.81% of actual)
+     7. Curl Virus -> Bacterial Blight: 5 images (1.20% of actual)
+     8. Bacterial Blight -> Healthy Leaf: 4 images (0.89% of actual)
+
+
+==========================================================================================
+CROSS-MODEL ERROR COMPARISON (BACTERIAL BLIGHT, CURL VIRUS, HEALTHY LEAF)
+==========================================================================================
+
+1. Bacterial Blight Confusion:
+   - All models experience significant OOD over-prediction on Bacterial Blight images (misclassifying 135 to 186 images into the 4 non-target classes, notably Leaf Redding and Leaf Variegation due to reddish-brown necrotic spots).
+   - Swin-T achieved the highest Bacterial Blight Recall (60.27%, 270 TP), followed by ViT-B/16 (52.46%, 235 TP), YOLO26s (49.78%, 223 TP), and CottonNet V2 (43.08%, 193 TP).
+   - Bacterial Blight is frequently confused with Curl Virus across CNN/backbones when leaf wrinkling accompanies bacterial lesions.
+
+2. Curl Virus Confusion:
+   - Swin-T achieved the highest Curl Virus Recall (91.13%, 380 TP), with ViT-B/16 close behind (84.41%, 352 TP) and CottonNet V2 (69.78%, 291 TP).
+   - Healthy leaves are primarily misclassified as Curl Virus across all models (CottonNet V2: 45, Swin-T: 80, ViT-B/16: 58, YOLO26s: 98 images) due to natural leaf curling, venation patterns, and lighting glare in field photography.
+
+3. Healthy Leaf Confusion:
+   - ViT-B/16 achieved the highest Healthy Leaf Recall (79.29%, 337 TP), followed by CottonNet V2 (75.06%, 319 TP) and Swin-T (69.18%, 294 TP).
+   - CottonNet V2 showed exceptionally high precision on Bacterial Blight (92.34%) and Healthy Leaf (86.22%).
+
+==========================================================================================
+CONFIDENCE & UNCERTAINTY ANALYSIS FOR INCORRECT PREDICTIONS
+==========================================================================================
+
+- Correct Predictions: High average confidence (>0.88 - 0.94) across CottonNet V2, Swin-T, and ViT-B/16.
+- Cross-Target Confusions (e.g. Healthy Leaf predicted as Curl Virus): Moderate confidence (0.58 - 0.74), indicating perceptual ambiguity in leaf morphology.
+- OOD Over-predictions (Target classes predicted as Leaf Redding / Variegation): High confidence (>0.75 - 0.85) when strong background soil textures or severe necrotic lesions mimic non-target training classes.
+- YOLO26s-cls exhibited lower peak confidence on subtle textures, leading to diffuse probability distributions across classes.
+
+==========================================================================================
+INTERNAL METRIC DISCREPANCY AUDIT
+==========================================================================================
+
+DISCREPANCY IDENTIFICATION & SOURCE VERIFICATION:
+
+1. CottonNet V2:
+   - Stored Value in cotton-leaf-disease-nist.ipynb (Cells 42, 52, 64):
+     * Internal Test Accuracy: 96.26%
+     * Internal Test Macro F1: 96.34%
+     * Source: cotton-leaf-disease-nist.ipynb execution run
+   - Stored Value in notebook9327109e29 (3).ipynb (Cells 42, 52):
+     * Internal Test Accuracy: 97.66%
+     * Internal Test Macro F1: 97.81%
+     * Source: notebook9327109e29 (3).ipynb execution run
+   - Reason for Difference: Two distinct training runs on Kaggle GPU. In the active 'cotton-leaf-disease-nist.ipynb' session, the model trained to 96.26% Accuracy / 96.34% Macro F1. The external evaluation cell dynamically loaded these exact active metrics from memory, ensuring zero discrepancy within the notebook.
+
+2. Swin-T:
+   - cotton-leaf-disease-nist.ipynb: Acc = 97.66%, Macro F1 = 97.70%
+   - notebook9327109e29 (3).ipynb:   Acc = 97.66%, Macro F1 = 97.82%
+
+3. ViT-B/16:
+   - cotton-leaf-disease-nist.ipynb: Acc = 98.13%, Macro F1 = 98.25%
+   - notebook9327109e29 (3).ipynb:   Acc = 98.13%, Macro F1 = 98.28%
+
+4. YOLO26s-cls:
+   - Both Notebooks: Acc = 92.99%, Macro F1 = 93.41% (Exact match across all files)

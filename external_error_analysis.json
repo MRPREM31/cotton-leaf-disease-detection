@@ -1,0 +1,428 @@
+{
+  "CottonNet V2": {
+    "model_name": "CottonNet V2",
+    "overall_external_accuracy": 0.6225,
+    "external_macro_f1": 0.6994,
+    "external_weighted_f1": 0.6973,
+    "internal_accuracy": 0.9626,
+    "internal_macro_f1": 0.9634,
+    "generalization_gap_f1": 0.264,
+    "internal_source_info": "cotton-leaf-disease-nist.ipynb (Cells 42, 52)",
+    "alt_internal_run": {
+      "accuracy": 0.9766,
+      "macro_f1": 0.9781,
+      "source": "notebook9327109e29 (3).ipynb (Cells 42, 52)"
+    },
+    "confusion_matrix_3x3": [
+      [
+        193,
+        69,
+        15
+      ],
+      [
+        15,
+        291,
+        36
+      ],
+      [
+        1,
+        45,
+        319
+      ]
+    ],
+    "per_class_metrics": {
+      "Bacterial Blight": {
+        "precision": 0.9234,
+        "recall": 0.4308,
+        "f1_score": 0.5875,
+        "support": 448,
+        "true_positives": 193
+      },
+      "Curl Virus": {
+        "precision": 0.7185,
+        "recall": 0.6978,
+        "f1_score": 0.708,
+        "support": 417,
+        "true_positives": 291
+      },
+      "Healthy Leaf": {
+        "precision": 0.8622,
+        "recall": 0.7506,
+        "f1_score": 0.8025,
+        "support": 425,
+        "true_positives": 319
+      }
+    },
+    "top_confusion_pairs": [
+      {
+        "actual_class": "Bacterial Blight",
+        "predicted_class": "Other 4 Internal Classes (OOD)",
+        "count": 171,
+        "percent_of_actual": 38.17
+      },
+      {
+        "actual_class": "Curl Virus",
+        "predicted_class": "Other 4 Internal Classes (OOD)",
+        "count": 75,
+        "percent_of_actual": 17.99
+      },
+      {
+        "actual_class": "Bacterial Blight",
+        "predicted_class": "Curl Virus",
+        "count": 69,
+        "percent_of_actual": 15.4
+      },
+      {
+        "actual_class": "Healthy Leaf",
+        "predicted_class": "Other 4 Internal Classes (OOD)",
+        "count": 60,
+        "percent_of_actual": 14.12
+      },
+      {
+        "actual_class": "Healthy Leaf",
+        "predicted_class": "Curl Virus",
+        "count": 45,
+        "percent_of_actual": 10.59
+      },
+      {
+        "actual_class": "Curl Virus",
+        "predicted_class": "Healthy Leaf",
+        "count": 36,
+        "percent_of_actual": 8.63
+      },
+      {
+        "actual_class": "Bacterial Blight",
+        "predicted_class": "Healthy Leaf",
+        "count": 15,
+        "percent_of_actual": 3.35
+      },
+      {
+        "actual_class": "Curl Virus",
+        "predicted_class": "Bacterial Blight",
+        "count": 15,
+        "percent_of_actual": 3.6
+      },
+      {
+        "actual_class": "Healthy Leaf",
+        "predicted_class": "Bacterial Blight",
+        "count": 1,
+        "percent_of_actual": 0.24
+      }
+    ]
+  },
+  "Swin-T": {
+    "model_name": "Swin-T",
+    "overall_external_accuracy": 0.7318,
+    "external_macro_f1": 0.7983,
+    "external_weighted_f1": 0.7972,
+    "internal_accuracy": 0.9766,
+    "internal_macro_f1": 0.977,
+    "generalization_gap_f1": 0.1787,
+    "internal_source_info": "cotton-leaf-disease-nist.ipynb (Cells 44, 52)",
+    "alt_internal_run": {
+      "accuracy": 0.9766,
+      "macro_f1": 0.9782,
+      "source": "notebook9327109e29 (3).ipynb (Cells 44, 52)"
+    },
+    "confusion_matrix_3x3": [
+      [
+        270,
+        32,
+        7
+      ],
+      [
+        0,
+        380,
+        2
+      ],
+      [
+        1,
+        80,
+        294
+      ]
+    ],
+    "per_class_metrics": {
+      "Bacterial Blight": {
+        "precision": 0.9963,
+        "recall": 0.6027,
+        "f1_score": 0.751,
+        "support": 448,
+        "true_positives": 270
+      },
+      "Curl Virus": {
+        "precision": 0.7724,
+        "recall": 0.9113,
+        "f1_score": 0.8361,
+        "support": 417,
+        "true_positives": 380
+      },
+      "Healthy Leaf": {
+        "precision": 0.9703,
+        "recall": 0.6918,
+        "f1_score": 0.8077,
+        "support": 425,
+        "true_positives": 294
+      }
+    },
+    "top_confusion_pairs": [
+      {
+        "actual_class": "Bacterial Blight",
+        "predicted_class": "Other 4 Internal Classes (OOD)",
+        "count": 139,
+        "percent_of_actual": 31.03
+      },
+      {
+        "actual_class": "Healthy Leaf",
+        "predicted_class": "Curl Virus",
+        "count": 80,
+        "percent_of_actual": 18.82
+      },
+      {
+        "actual_class": "Healthy Leaf",
+        "predicted_class": "Other 4 Internal Classes (OOD)",
+        "count": 50,
+        "percent_of_actual": 11.76
+      },
+      {
+        "actual_class": "Curl Virus",
+        "predicted_class": "Other 4 Internal Classes (OOD)",
+        "count": 35,
+        "percent_of_actual": 8.39
+      },
+      {
+        "actual_class": "Bacterial Blight",
+        "predicted_class": "Curl Virus",
+        "count": 32,
+        "percent_of_actual": 7.14
+      },
+      {
+        "actual_class": "Bacterial Blight",
+        "predicted_class": "Healthy Leaf",
+        "count": 7,
+        "percent_of_actual": 1.56
+      },
+      {
+        "actual_class": "Curl Virus",
+        "predicted_class": "Healthy Leaf",
+        "count": 2,
+        "percent_of_actual": 0.48
+      },
+      {
+        "actual_class": "Healthy Leaf",
+        "predicted_class": "Bacterial Blight",
+        "count": 1,
+        "percent_of_actual": 0.24
+      }
+    ]
+  },
+  "ViT-B/16": {
+    "model_name": "ViT-B/16",
+    "overall_external_accuracy": 0.7163,
+    "external_macro_f1": 0.7658,
+    "external_weighted_f1": 0.7642,
+    "internal_accuracy": 0.9813,
+    "internal_macro_f1": 0.9825,
+    "generalization_gap_f1": 0.2167,
+    "internal_source_info": "cotton-leaf-disease-nist.ipynb (Cells 46, 52)",
+    "alt_internal_run": {
+      "accuracy": 0.9813,
+      "macro_f1": 0.9828,
+      "source": "notebook9327109e29 (3).ipynb (Cells 46, 52)"
+    },
+    "confusion_matrix_3x3": [
+      [
+        235,
+        72,
+        6
+      ],
+      [
+        3,
+        352,
+        45
+      ],
+      [
+        0,
+        58,
+        337
+      ]
+    ],
+    "per_class_metrics": {
+      "Bacterial Blight": {
+        "precision": 0.9874,
+        "recall": 0.5246,
+        "f1_score": 0.6851,
+        "support": 448,
+        "true_positives": 235
+      },
+      "Curl Virus": {
+        "precision": 0.7303,
+        "recall": 0.8441,
+        "f1_score": 0.7831,
+        "support": 417,
+        "true_positives": 352
+      },
+      "Healthy Leaf": {
+        "precision": 0.8686,
+        "recall": 0.7929,
+        "f1_score": 0.829,
+        "support": 425,
+        "true_positives": 337
+      }
+    },
+    "top_confusion_pairs": [
+      {
+        "actual_class": "Bacterial Blight",
+        "predicted_class": "Other 4 Internal Classes (OOD)",
+        "count": 135,
+        "percent_of_actual": 30.13
+      },
+      {
+        "actual_class": "Bacterial Blight",
+        "predicted_class": "Curl Virus",
+        "count": 72,
+        "percent_of_actual": 16.07
+      },
+      {
+        "actual_class": "Healthy Leaf",
+        "predicted_class": "Curl Virus",
+        "count": 58,
+        "percent_of_actual": 13.65
+      },
+      {
+        "actual_class": "Curl Virus",
+        "predicted_class": "Healthy Leaf",
+        "count": 45,
+        "percent_of_actual": 10.79
+      },
+      {
+        "actual_class": "Healthy Leaf",
+        "predicted_class": "Other 4 Internal Classes (OOD)",
+        "count": 30,
+        "percent_of_actual": 7.06
+      },
+      {
+        "actual_class": "Curl Virus",
+        "predicted_class": "Other 4 Internal Classes (OOD)",
+        "count": 17,
+        "percent_of_actual": 4.08
+      },
+      {
+        "actual_class": "Bacterial Blight",
+        "predicted_class": "Healthy Leaf",
+        "count": 6,
+        "percent_of_actual": 1.34
+      },
+      {
+        "actual_class": "Curl Virus",
+        "predicted_class": "Bacterial Blight",
+        "count": 3,
+        "percent_of_actual": 0.72
+      }
+    ]
+  },
+  "YOLO26s-cls": {
+    "model_name": "YOLO26s-cls",
+    "overall_external_accuracy": 0.5473,
+    "external_macro_f1": 0.6456,
+    "external_weighted_f1": 0.6456,
+    "internal_accuracy": 0.9299,
+    "internal_macro_f1": 0.9341,
+    "generalization_gap_f1": 0.2885,
+    "internal_source_info": "cotton-leaf-disease-nist.ipynb (Cells 50, 52)",
+    "alt_internal_run": {
+      "accuracy": 0.9299,
+      "macro_f1": 0.9341,
+      "source": "notebook9327109e29 (3).ipynb (Cells 50, 52)"
+    },
+    "confusion_matrix_3x3": [
+      [
+        223,
+        35,
+        4
+      ],
+      [
+        5,
+        287,
+        38
+      ],
+      [
+        0,
+        98,
+        196
+      ]
+    ],
+    "per_class_metrics": {
+      "Bacterial Blight": {
+        "precision": 0.9781,
+        "recall": 0.4978,
+        "f1_score": 0.6598,
+        "support": 448,
+        "true_positives": 223
+      },
+      "Curl Virus": {
+        "precision": 0.6833,
+        "recall": 0.6882,
+        "f1_score": 0.6858,
+        "support": 417,
+        "true_positives": 287
+      },
+      "Healthy Leaf": {
+        "precision": 0.8235,
+        "recall": 0.4612,
+        "f1_score": 0.5913,
+        "support": 425,
+        "true_positives": 196
+      }
+    },
+    "top_confusion_pairs": [
+      {
+        "actual_class": "Bacterial Blight",
+        "predicted_class": "Other 4 Internal Classes (OOD)",
+        "count": 186,
+        "percent_of_actual": 41.52
+      },
+      {
+        "actual_class": "Healthy Leaf",
+        "predicted_class": "Other 4 Internal Classes (OOD)",
+        "count": 131,
+        "percent_of_actual": 30.82
+      },
+      {
+        "actual_class": "Healthy Leaf",
+        "predicted_class": "Curl Virus",
+        "count": 98,
+        "percent_of_actual": 23.06
+      },
+      {
+        "actual_class": "Curl Virus",
+        "predicted_class": "Other 4 Internal Classes (OOD)",
+        "count": 87,
+        "percent_of_actual": 20.86
+      },
+      {
+        "actual_class": "Curl Virus",
+        "predicted_class": "Healthy Leaf",
+        "count": 38,
+        "percent_of_actual": 9.11
+      },
+      {
+        "actual_class": "Bacterial Blight",
+        "predicted_class": "Curl Virus",
+        "count": 35,
+        "percent_of_actual": 7.81
+      },
+      {
+        "actual_class": "Curl Virus",
+        "predicted_class": "Bacterial Blight",
+        "count": 5,
+        "percent_of_actual": 1.2
+      },
+      {
+        "actual_class": "Bacterial Blight",
+        "predicted_class": "Healthy Leaf",
+        "count": 4,
+        "percent_of_actual": 0.89
+      }
+    ]
+  }
+}

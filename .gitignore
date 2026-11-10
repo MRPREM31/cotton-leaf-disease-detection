@@ -1,0 +1,34 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Android build artifacts and cache
+android/app/build/
+android/build/
+android/.gradle/
+*.hprof
+*.apk
+*.aab
+local.properties
+
+# Database & Crash dumps
+*.db
+*.sqlite
+*.log
+
+# Large model checkpoint binaries (Track code & ONNX; distribute checkpoints via Releases/Drive)
+*.pth
+*.pth.*
+*.h5
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environment & IDE
+.env
+.venv
+env/
+venv/
+.vscode/
+.idea/

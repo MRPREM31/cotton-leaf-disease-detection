@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="CottonCare - AI-Powered Cotton Leaf Disease Detection">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <title>CottonCare • AI-Powered Cotton Leaf Disease Detection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="medical-theme-light">
+
+  <!-- ==================== MEDICAL TOP APP BAR ==================== -->
+  <header class="med-header">
+    <div class="header-content">
+      <div class="header-left">
+        <button class="nav-icon-btn" id="menuToggleBtn" aria-label="Open Menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.2" fill="none"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <div class="brand-group">
+          <img src="logo.png" alt="CottonCare Logo" class="brand-logo-img">
+          <div class="brand-info">
+            <h1 class="brand-heading">CottonCare <span class="med-tag">AI</span></h1>
+            <span class="brand-subline">AI-Powered Leaf Disease Detection</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <!-- Language Switcher Pill -->
+        <button class="med-pill-btn" id="quickLangBtn">
+          <span class="globe-ico">🌐</span>
+          <span id="langLabel">EN</span>
+        </button>
+        <!-- Model Accuracy Tag -->
+        <div class="med-status-tag" id="modelPillBtn">
+          <span class="pulse-emerald"></span>
+          <span>98.6% F1</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== SLIDE-OUT NAVIGATION DRAWER ==================== -->
+  <div class="drawer-backdrop" id="drawerOverlay"></div>
+  <aside class="med-drawer" id="navDrawer">
+    <div class="drawer-top-banner">
+      <img src="logo.png" alt="CottonCare Logo" class="drawer-logo-img">
+      <div>
+        <h3>CottonCare</h3>
+        <p>AI Disease Diagnostics</p>
+      </div>
+      <button class="drawer-close" id="drawerCloseBtn">✕</button>
+    </div>
+
+    <nav class="drawer-links-list">
+      <div class="drawer-section-label">DIAGNOSTIC WORKSPACE</div>
+      
+      <a class="drawer-nav-link active" data-tab="tab-scan">
+        <span class="d-icon">🔬</span>
+        <div class="d-text">
+          <strong>Pathology Scanner</strong>
+          <span>Live camera & leaf analysis</span>
+        </div>
+      </a>
+
+      <a class="drawer-nav-link" data-tab="tab-samples">
+        <span class="d-icon">🖼️</span>
+        <div class="d-text">
+          <strong>Clinical Test Cases</strong>
+          <span>7 Certified disease specimens</span>
+        </div>
+      </a>
+
+      <a class="drawer-nav-link" data-tab="tab-history">
+        <span class="d-icon">📋</span>
+        <div class="d-text">
+          <strong>Diagnostic Reports</strong>
+          <span>Patient & field history log</span>
+        </div>
+      </a>
+
+      <div class="drawer-section-label">CLINICAL REFERENCES</div>
+
+      <a class="drawer-nav-link" data-tab="tab-benchmark">
+        <span class="d-icon">📊</span>
+        <div class="d-text">
+          <strong>Clinical Trials & Benchmark</strong>
+          <span>5-Model statistical validation</span>
+        </div>
+      </a>
+
+      <a class="drawer-nav-link" data-tab="tab-guide">
+        <span class="d-icon">💊</span>
+        <div class="d-text">
+          <strong>Treatment Pharmacopeia</strong>
+          <span>Dosage & management protocols</span>
+        </div>
+      </a>
+
+      <div class="drawer-section-label">LOCALIZATION & SETTINGS</div>
+
+      <div class="drawer-box">
+        <span class="d-box-title">Select Language / ଭାଷା / भाषा:</span>
+        <div class="d-lang-grid">
+          <button class="d-lang-choice active" data-lang="en">English</button>
+          <button class="d-lang-choice" data-lang="hi">हिन्दी</button>
+          <button class="d-lang-choice" data-lang="or">ଓଡ଼ିଆ</button>
+        </div>
+      </div>
+
+      <div class="drawer-box">
+        <span class="d-box-title">Neural Engine Selection:</span>
+        <select id="drawerModelSelect" class="d-select">
+          <option value="cottonnet" selected>CottonNet (Primary) - 98.60% F1 (4.87M)</option>
+          <option value="mobilenetv3">MobileNetV3-Large - 95.79% F1 (4.21M)</option>
+          <option value="densenet121">DenseNet121 - 96.26% F1 (6.96M)</option>
+          <option value="efficientnet">EfficientNet-B0 - 95.33% F1 (4.02M)</option>
+        </select>
+      </div>
+    </nav>
+
+    <div class="drawer-foot">
+      <span>CottonNet Neural Diagnostic v1.0 • Offline Ready</span>
+    </div>
+  </aside>
+
+  <!-- ==================== MAIN APPLICATION CONTAINER ==================== -->
+  <main class="med-container">
+
+    <!-- ==================== TAB 1: SCANNER & DIAGNOSTICS ==================== -->
+    <section id="tab-scan" class="med-tab-pane active">
+      
+      <!-- Diagnostic Greeting Banner -->
+      <div class="med-hero-card">
+        <div class="hero-text-wrap">
+          <span class="hero-badge-pill">OFFLINE CLINICAL AI</span>
+          <h2 id="heroTitle">Cotton Leaf Disease Diagnosis</h2>
+          <p id="heroSub">High-precision neural scanner with real-time Grad-CAM lesion explainability.</p>
+        </div>
+        <div class="hero-metric-box">
+          <span class="metric-num">98.6%</span>
+          <span class="metric-lbl">Diagnostic F1</span>
+        </div>
+      </div>
+
+      <!-- Live Camera & Visual Scanner Card -->
+      <div class="med-card scanner-card">
+        
+        <div class="camera-stage">
+          <video id="cameraVideo" autoplay playsinline muted></video>
+          <canvas id="photoCanvas" style="display: none;"></canvas>
+          <img id="previewImage" alt="Specimen Preview" style="display: none;">
+
+          <!-- Scanner Viewfinder Overlay -->
+          <div class="scanner-viewfinder" id="viewfinder">
+            <div class="vf-corner tl"></div>
+            <div class="vf-corner tr"></div>
+            <div class="vf-corner bl"></div>
+            <div class="vf-corner br"></div>
+            <div class="vf-scanning-line" id="laserScanner"></div>
+            <div class="vf-helper-chip">
+              <span class="chip-pulse"></span>
+              <span id="alignLeafText">Align cotton leaf within frame</span>
+            </div>
+          </div>
+
+          <!-- Quality Telemetry Bar -->
+          <div class="telemetry-bar" id="cameraQualityPill" style="display: none;">
+            <div class="tele-item"><span>🔍 Sharpness:</span> <b id="blurVal">94%</b></div>
+            <div class="tele-divider"></div>
+            <div class="tele-item"><span>💡 Light:</span> <b id="lightVal">Optimal</b></div>
+            <div class="tele-divider"></div>
+            <div class="tele-item"><span>🌿 Target:</span> <b id="leafVal">Cotton Leaf</b></div>
+          </div>
+
+          <!-- Idle Placeholder Prompt (When Camera Inactive) -->
+          <div class="camera-standby-view" id="cameraIdlePrompt">
+            <div class="standby-icon-circle">
+              <svg viewBox="0 0 24 24" width="36" height="36" stroke="#059669" stroke-width="1.8" fill="none" stroke-linecap="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            </div>
+            <h3 id="readyTitle">Capture or Upload Specimen</h3>
+            <p id="readyDesc">Perform instant 14ms offline neural inference to detect bacterial, viral, or deficiency pathologies.</p>
+            
+            <div class="standby-btn-group">
+              <button class="med-btn btn-primary" id="startCamBtn">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                <span id="openCameraText">Open Camera</span>
+              </button>
+              
+              <button class="med-btn btn-outline" id="uploadTriggerBtn">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                <span id="choosePhotoText">Upload Photo</span>
+              </button>
+            </div>
+          </div>
+
+          <input type="file" id="fileInput" accept="image/*" style="display: none;">
+        </div>
+
+        <!-- Active Camera Controls Bar -->
+        <div class="camera-live-bar" id="cameraActionDock" style="display: none;">
+          <button class="live-action-btn" id="switchCamBtn" title="Switch Lens">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+          </button>
+          
+          <button class="live-shutter-btn" id="captureBtn" title="Take Photo">
+            <div class="shutter-dot"></div>
+          </button>
+          
+          <button class="live-action-btn btn-close-live" id="closeCamBtn" title="Close Camera">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Quick Test Specimens Strip -->
+      <div class="quick-specimens-section">
+        <div class="specimens-header">
+          <span>⚡ QUICK TEST SPECIMENS (1-CLICK DIAGNOSIS):</span>
+        </div>
+        <div class="specimens-carousel" id="quickPresetsScroll">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Processing State -->
+      <div class="med-card processing-card" id="processingCard" style="display: none;">
+        <div class="med-spinner"></div>
+        <h4>CottonNet Neural Diagnostics Running...</h4>
+        <p>Extracting Squeeze-and-Excitation channel activations & disease contours</p>
+      </div>
+
+      <!-- Low Confidence Alert -->
+      <div class="med-alert alert-warning" id="oodAlert" style="display: none;">
+        <span class="alert-icon-med">⚠️</span>
+        <div class="alert-info">
+          <strong id="oodAlertTitle">Image Quality / Pathology Verification Alert</strong>
+          <p id="oodAlertDesc">Classification confidence is under 75%. Ensure steady natural lighting and focus directly on lesion spots.</p>
+        </div>
+      </div>
+
+      <!-- ==================== CLINICAL DIAGNOSIS REPORT ==================== -->
+      <div class="diagnosis-report-container" id="diagnosisCard" style="display: none;">
+        
+        <!-- Primary Pathology Card -->
+        <div class="med-card pathology-card">
+          <div class="pathology-header">
+            <div class="pathology-avatar" id="diseaseIcon">🦠</div>
+            <div class="pathology-title-wrap">
+              <span class="pathology-tag" id="diagTagLabel">DIAGNOSED CONDITION</span>
+              <h2 class="pathology-name" id="diseaseName">Bacterial Blight</h2>
+              <span class="severity-badge-med" id="diseaseSeverityPill">High Severity</span>
+            </div>
+
+            <div class="confidence-donut-box">
+              <svg viewBox="0 0 36 36" class="med-donut">
+                <path class="donut-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="donut-val" id="confCircleBar" stroke-dasharray="98.6, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <text x="18" y="20.8" class="donut-text" id="confPercentageText">98.6%</text>
+              </svg>
+              <span class="donut-caption" id="confLabel">Confidence</span>
+            </div>
+          </div>
+
+          <!-- Clinical Telemetry Grid -->
+          <div class="clinical-metrics-grid">
+            <div class="c-metric">
+              <span class="cm-lbl">NEURAL MODEL</span>
+              <strong class="cm-val" id="resModelName">CottonNet FP32</strong>
+            </div>
+            <div class="c-metric">
+              <span class="cm-lbl">INFERENCE SPEED</span>
+              <strong class="cm-val text-green" id="resLatency">14.2 ms</strong>
+            </div>
+            <div class="c-metric">
+              <span class="cm-lbl">TEST ACCURACY</span>
+              <strong class="cm-val text-green">98.60% F1</strong>
+            </div>
+            <div class="c-metric">
+              <span class="cm-lbl">WEIGHT FOOTPRINT</span>
+              <strong class="cm-val">4.87M Params</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Multi-Class Distribution -->
+        <div class="med-card">
+          <div class="card-head">
+            <h4 id="probTitle">Multi-Class Probability Distribution</h4>
+            <button class="med-btn-sm" id="toggleProbDetailsBtn">View All 7</button>
+          </div>
+          <div class="prob-breakdown-list" id="probBarsList">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Explainability (Grad-CAM Heatmap Viewer) -->
+        <div class="med-card explainability-box">
+          <div class="card-head">
+            <div class="head-icon-title">
+              <span class="icon-lens">🔬</span>
+              <div>
+                <h4 id="gradcamTitle">Explainability: Lesion Heatmap (Grad-CAM)</h4>
+                <p id="gradcamSub">Highlights convolutional feature maps that influenced the diagnosis</p>
+              </div>
+            </div>
+            <label class="med-switch">
+              <input type="checkbox" id="gradCamToggle" checked>
+              <span class="switch-slider round"></span>
+            </label>
+          </div>
+
+          <div class="heatmap-canvas-frame" id="camWrapper">
+            <canvas id="gradCamCanvas"></canvas>
+            <div class="heatmap-spectrum-bar">
+              <span>Healthy Tissue</span>
+              <div class="spectrum-gradient"></div>
+              <span>Lesion Center</span>
+            </div>
+          </div>
+
+          <div class="heatmap-tools-row">
+            <div class="opacity-tool">
+              <span class="tool-label">Overlay Opacity:</span>
+              <input type="range" id="camOpacityRange" min="0" max="100" value="70">
+              <strong id="opacityValLabel">70%</strong>
+            </div>
+            <div class="cmap-pills">
+              <button class="cmap-pill active" data-cmap="jet">Jet</button>
+              <button class="cmap-pill" data-cmap="hot">Hot</button>
+              <button class="cmap-pill" data-cmap="viridis">Viridis</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agronomic Rx (Medical Prescription Card) -->
+        <div class="med-card rx-card">
+          <div class="rx-head">
+            <div class="rx-badge">Rx</div>
+            <div>
+              <h3 id="advisoryHeading">Agronomic Prescription & Field Management</h3>
+              <p id="advisorySub">Standardized chemical and biological intervention protocols</p>
+            </div>
+          </div>
+
+          <div class="rx-section rx-symptoms">
+            <div class="rx-sec-title">
+              <span class="dot-symp"></span>
+              <strong id="symptomsHeading">Etiology & Symptom Identification</strong>
+            </div>
+            <p class="rx-body-text" id="advSymptoms"></p>
+          </div>
+
+          <div class="rx-section rx-chemical">
+            <div class="rx-sec-title">
+              <span class="dot-chem"></span>
+              <strong id="chemicalHeading">Chemical Control & Targeted Dosage</strong>
+            </div>
+            <p class="rx-body-text" id="advChemical"></p>
+          </div>
+
+          <div class="rx-section rx-organic">
+            <div class="rx-sec-title">
+              <span class="dot-org"></span>
+              <strong id="organicHeading">Organic & Biological Prevention</strong>
+            </div>
+            <p class="rx-body-text" id="advOrganic"></p>
+          </div>
+        </div>
+
+        <!-- Action Control Buttons -->
+        <div class="report-action-buttons">
+          <button class="med-btn btn-secondary" id="saveHistoryBtn">
+            <span>💾</span> <span id="saveBtnText">Save Record</span>
+          </button>
+          <button class="med-btn btn-outline" id="exportReportBtn">
+            <span>📥</span> <span id="exportBtnText">Export PDF/Text</span>
+          </button>
+          <button class="med-btn btn-primary" id="newScanBtn">
+            <span>🔄</span> <span id="scanNextText">New Scan</span>
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ==================== TAB 2: SPECIMEN LIBRARY ==================== -->
+    <section id="tab-samples" class="med-tab-pane">
+      <div class="section-title-wrap">
+        <h2 id="samplesHeaderTitle">Cotton Pathology Reference Library</h2>
+        <p id="samplesHeaderSub">Tap any verified specimen to run instant neural evaluation.</p>
+      </div>
+
+      <div class="specimens-grid" id="samplesGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- ==================== TAB 3: DIAGNOSTIC LOG ==================== -->
+    <section id="tab-history" class="med-tab-pane">
+      <div class="section-title-wrap flex-between">
+        <div>
+          <h2 id="historyHeaderTitle">Diagnostic Records Log</h2>
+          <p id="historyHeaderSub">Offline records stored securely on this device</p>
+        </div>
+        <button class="med-btn-danger" id="clearHistoryBtn">Clear Log</button>
+      </div>
+
+      <div class="records-list" id="historyList">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- ==================== TAB 4: RESEARCH BENCHMARK ==================== -->
+    <section id="tab-benchmark" class="med-tab-pane">
+      <div class="section-title-wrap">
+        <h2>CottonNet Clinical Trials & Benchmark</h2>
+        <p>Comprehensive model comparison on SAR-CLD-2024 held-out test dataset</p>
+      </div>
+
+      <div class="med-card champion-card-med">
+        <div class="champ-top">
+          <div class="champ-icon">🏆</div>
+          <div>
+            <h3>CottonNet (Proposed Architecture)</h3>
+            <p>Modified EfficientNet-B0 + Squeeze-and-Excitation + DenseNet121 Knowledge Distillation</p>
+          </div>
+          <span class="champ-rank-tag">Rank #1 F1</span>
+        </div>
+
+        <div class="champ-stats-row">
+          <div class="cs-item">
+            <span class="cs-num">98.60%</span>
+            <span class="cs-lbl">Test F1-Score</span>
+          </div>
+          <div class="cs-item">
+            <span class="cs-num">4.87M</span>
+            <span class="cs-lbl">Parameters</span>
+          </div>
+          <div class="cs-item">
+            <span class="cs-num">4.9 MB</span>
+            <span class="cs-lbl">INT8 Size</span>
+          </div>
+          <div class="cs-item">
+            <span class="cs-num">14.2 ms</span>
+            <span class="cs-lbl">Latency (CPU)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison Table Card -->
+      <div class="med-card">
+        <h4>5-Model Benchmark Evaluation</h4>
+        <div class="table-container">
+          <table class="clinical-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Test F1</th>
+                <th>Val F1</th>
+                <th>Params</th>
+                <th>Size (INT8)</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight-row">
+                <td><strong>🌱 CottonNet (Ours)</strong></td>
+                <td><strong class="text-green">98.60%</strong></td>
+                <td>98.13%</td>
+                <td>4.87M</td>
+                <td><strong>4.9 MB</strong></td>
+                <td><span class="role-badge role-primary">Champion</span></td>
+              </tr>
+              <tr>
+                <td>DenseNet121</td>
+                <td>96.26%</td>
+                <td>99.07%</td>
+                <td>6.96M</td>
+                <td>7.2 MB</td>
+                <td><span class="role-badge role-sec">Teacher</span></td>
+              </tr>
+              <tr>
+                <td>MobileNetV3-Large</td>
+                <td>95.79%</td>
+                <td>94.86%</td>
+                <td>4.21M</td>
+                <td>4.3 MB</td>
+                <td><span class="role-badge role-sec">Fast Base</span></td>
+              </tr>
+              <tr>
+                <td>EfficientNet-B0</td>
+                <td>95.33%</td>
+                <td>98.60%</td>
+                <td>4.02M</td>
+                <td>4.1 MB</td>
+                <td><span class="role-badge role-warn">Overfitted</span></td>
+              </tr>
+              <tr>
+                <td>ResNet50</td>
+                <td>93.93%</td>
+                <td>96.26%</td>
+                <td>23.52M</td>
+                <td>23.8 MB</td>
+                <td><span class="role-badge role-danger">Heavy</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Compression Footprint -->
+      <div class="med-card">
+        <h4>Edge Quantization & Mobile Compression</h4>
+        <div class="compression-cards-grid">
+          <div class="quant-box">
+            <span class="qb-type">FP32 Baseline</span>
+            <span class="qb-val">18.9 MB</span>
+            <span class="qb-sub">98.60% F1 • 38 ms</span>
+          </div>
+          <div class="quant-box">
+            <span class="qb-type">FP16 Half</span>
+            <span class="qb-val">9.5 MB</span>
+            <span class="qb-sub">98.58% F1 • 22 ms</span>
+          </div>
+          <div class="quant-box best">
+            <span class="qb-type">INT8 Quantized</span>
+            <span class="qb-val">4.9 MB</span>
+            <span class="qb-sub">98.49% F1 • 14 ms</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================== TAB 5: PHARMACOPEIA & GUIDE ==================== -->
+    <section id="tab-guide" class="med-tab-pane">
+      <div class="section-title-wrap">
+        <h2 id="guideHeaderTitle">Cotton Pathology Pharmacopeia</h2>
+        <p id="guideHeaderSub">Complete clinical diagnostic markers and pesticide dosage table</p>
+      </div>
+
+      <div class="accordion-guide-list" id="handbookList">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== BOTTOM CLINICAL NAVBAR ==================== -->
+  <nav class="med-bottom-nav">
+    <button class="nav-btn active" data-tab="tab-scan">
+      <div class="nav-icon-wrap">
+        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+      </div>
+      <span class="nav-label" id="tabLabelScan">Scanner</span>
+    </button>
+    
+    <button class="nav-btn" data-tab="tab-samples">
+      <div class="nav-icon-wrap">
+        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+      </div>
+      <span class="nav-label" id="tabLabelSamples">Specimens</span>
+    </button>
+
+    <button class="nav-btn" data-tab="tab-history">
+      <div class="nav-icon-wrap">
+        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+      </div>
+      <span class="nav-label" id="tabLabelHistory">Records</span>
+    </button>
+
+    <button class="nav-btn" data-tab="tab-benchmark">
+      <div class="nav-icon-wrap">
+        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+      </div>
+      <span class="nav-label" id="tabLabelResearch">Trials</span>
+    </button>
+
+    <button class="nav-btn" data-tab="tab-guide">
+      <div class="nav-icon-wrap">
+        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      </div>
+      <span class="nav-label" id="tabLabelGuide">Guide</span>
+    </button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>

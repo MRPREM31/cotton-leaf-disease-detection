@@ -1,0 +1,9 @@
+Threshold,Total_Samples,Accepted_Samples,Rejected_Samples,Coverage_Percentage,Average_Confidence_Percentage,Tradeoff_Note
+0.3,12,0,12,0.0,0.0,High Coverage (Farmer Friendly)
+0.4,12,0,12,0.0,0.0,High Coverage (Farmer Friendly)
+0.5,12,0,12,0.0,0.0,Balanced
+0.6,12,0,12,0.0,0.0,Balanced
+0.7,12,0,12,0.0,0.0,High Precision / Conservative
+0.8,12,0,12,0.0,0.0,High Precision / Conservative
+0.9,12,0,12,0.0,0.0,High Precision / Conservative
+0.95,12,0,12,0.0,0.0,High Precision / Conservative

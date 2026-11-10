@@ -1,0 +1,13 @@
+Sample_ID,PyTorch_Class,PyTorch_Confidence,ONNX_FP32_Class,ONNX_FP32_Confidence,ONNX_FP16_Class,ONNX_FP16_Confidence,ONNX_INT8_Class,ONNX_INT8_Confidence,FP32_Agreement,FP16_Agreement,INT8_Agreement,FP32_Max_Diff,FP16_Max_Diff,INT8_Max_Diff
+leaf_10.jpg,Healthy Leaf,0.4148,Healthy Leaf,0.4148,Healthy Leaf,0.4137,Bacterial Blight,0.4131,True,True,False,6e-06,0.003858,1.414914
+leaf_11.jpg,Healthy Leaf,0.4025,Healthy Leaf,0.4025,Healthy Leaf,0.4012,Leaf Redding,0.3803,True,True,False,5e-06,0.005503,1.630057
+leaf_13.jpg,Healthy Leaf,0.4808,Healthy Leaf,0.4808,Healthy Leaf,0.4805,Bacterial Blight,0.3412,True,True,False,4e-06,0.003554,1.505082
+leaf_2.jpg,Healthy Leaf,0.3761,Healthy Leaf,0.3761,Healthy Leaf,0.376,Leaf Redding,0.4222,True,True,False,5e-06,0.007175,1.601056
+leaf_3.jpg,Healthy Leaf,0.5162,Healthy Leaf,0.5162,Healthy Leaf,0.5166,Bacterial Blight,0.4001,True,True,False,2e-06,0.003303,1.777004
+leaf_36.jpg,Healthy Leaf,0.3591,Healthy Leaf,0.3591,Healthy Leaf,0.3606,Bacterial Blight,0.4027,True,True,False,5e-06,0.005983,1.142985
+leaf_4.jpg,Healthy Leaf,0.4756,Healthy Leaf,0.4756,Healthy Leaf,0.4749,Bacterial Blight,0.4334,True,True,False,3e-06,0.004298,1.423127
+leaf_5.jpg,Bacterial Blight,0.3514,Bacterial Blight,0.3514,Bacterial Blight,0.3509,Leaf Redding,0.4042,True,True,False,6e-06,0.003776,1.199156
+leaf_6.jpg,Bacterial Blight,0.3335,Bacterial Blight,0.3335,Bacterial Blight,0.334,Leaf Redding,0.4144,True,True,False,4e-06,0.004359,0.928173
+leaf_7.jpg,Healthy Leaf,0.4697,Healthy Leaf,0.4697,Healthy Leaf,0.4705,Leaf Redding,0.3656,True,True,False,3e-06,0.004004,1.570746
+leaf_8.jpg,Healthy Leaf,0.3472,Healthy Leaf,0.3472,Healthy Leaf,0.3463,Bacterial Blight,0.3858,True,True,False,9e-06,0.005361,1.457284
+leaf_9.jpg,Healthy Leaf,0.3839,Healthy Leaf,0.3839,Healthy Leaf,0.3828,Bacterial Blight,0.3445,True,True,False,3e-06,0.003732,1.385636

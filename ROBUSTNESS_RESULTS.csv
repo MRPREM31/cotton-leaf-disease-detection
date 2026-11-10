@@ -1,0 +1,7 @@
+Degradation_Condition,Total_Images,Mean_Confidence_Pct,Rejected_Count,Rejection_Rate_Pct,Robustness_Impact
+baseline_clean,12,40.92,12,100.0,Reference (Clean)
+gaussian_blur_r2,12,45.47,12,100.0,Minor Degradation
+gaussian_noise_std20,12,39.23,12,100.0,Severe Degradation
+low_light_50pct,12,49.29,12,100.0,Minor Degradation
+high_exposure_150pct,12,30.66,12,100.0,Severe Degradation
+jpeg_compression_q30,12,35.07,12,100.0,Severe Degradation

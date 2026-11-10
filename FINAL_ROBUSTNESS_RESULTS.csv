@@ -1,0 +1,12 @@
+Perturbation,Sample_Count,Mean_Confidence_Pct,Confidence_Drop_Pct,Rejections,Rejection_Rate_Pct,Robustness_Level
+Baseline_Clean,12,40.92,0.0,12,100.0,Baseline (Clean Reference)
+Gaussian_Blur_r1,12,47.13,-6.21,12,100.0,Safety Guard Triggered
+Gaussian_Blur_r3,12,41.4,-0.47,12,100.0,Safety Guard Triggered
+Gaussian_Noise_std15,12,49.01,-8.09,12,100.0,Safety Guard Triggered
+Gaussian_Noise_std30,12,48.48,-7.56,12,100.0,Safety Guard Triggered
+Low_Light_0.4,12,61.02,-20.1,12,100.0,Safety Guard Triggered
+Low_Light_0.7,12,58.96,-18.04,12,100.0,Safety Guard Triggered
+Overexposure_1.6,12,31.11,9.82,12,100.0,Safety Guard Triggered
+JPEG_Compression_q20,12,33.57,7.35,12,100.0,Safety Guard Triggered
+Rotation_45deg,12,33.1,7.82,12,100.0,Safety Guard Triggered
+Rotation_90deg,12,57.95,-17.02,12,100.0,Safety Guard Triggered

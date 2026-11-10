@@ -1,0 +1,60 @@
+{
+  "model_parameters": {
+    "total": 4870275,
+    "trainable": 4870275,
+    "total_millions": 4.87,
+    "trainable_millions": 4.87
+  },
+  "model_sizes_mb": {
+    "pytorch_pth": 18.88,
+    "onnx_fp32": 18.56,
+    "onnx_int8": 4.94
+  },
+  "latencies_ms": {
+    "pytorch_cpu": {
+      "mean_ms": 26.121904003666714,
+      "median_ms": 25.745199993252754,
+      "p95_ms": 32.507264986634254,
+      "min_ms": 19.40769999055192,
+      "max_ms": 33.44909998122603
+    },
+    "onnx_fp32_cpu": {
+      "mean_ms": 6.556101999012753,
+      "median_ms": 6.465550017310306,
+      "p95_ms": 7.187419992987998,
+      "min_ms": 5.719500011764467
+    },
+    "onnx_int8_cpu": {
+      "mean_ms": 33.800926002440974,
+      "median_ms": 33.6949500197079,
+      "p95_ms": 36.87214500096161,
+      "min_ms": 29.18180002598092
+    }
+  },
+  "ood_rejection_tests": {
+    "pure_black_dark": {
+      "is_rejected": true,
+      "rejection_reason": "Image is too dark to resolve leaf symptoms.",
+      "sharpness": 10.0,
+      "lighting": "Poor (Too Dark / Underexposed)"
+    },
+    "pure_white_glare": {
+      "is_rejected": true,
+      "rejection_reason": "Image has severe glare or overexposure.",
+      "sharpness": 10.0,
+      "lighting": "Poor (Overexposed / Glare)"
+    },
+    "random_noise_ood": {
+      "is_rejected": true,
+      "rejection_reason": "Unstructured noise or invalid camera input. Please capture a real leaf.",
+      "sharpness": 99.0,
+      "lighting": "Optimal"
+    },
+    "uniform_gray_background": {
+      "is_rejected": true,
+      "rejection_reason": "Image is too blurry for reliable clinical diagnosis.",
+      "sharpness": 10.0,
+      "lighting": "Optimal"
+    }
+  }
+}

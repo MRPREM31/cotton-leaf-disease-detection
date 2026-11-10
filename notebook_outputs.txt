@@ -1,0 +1,1042 @@
+=== Cell 2 Outputs ===
+Candidate root not found. Auto-scanning '/kaggle/input' for dataset...
+Auto-detected dataset root at: /kaggle/input/datasets/sabuktagin/dataset-for-cotton-leaf-disease-detection/SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection/Original Dataset/Original Dataset
+Using dataset root: /kaggle/input/datasets/sabuktagin/dataset-for-cotton-leaf-disease-detection/SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection/Original Dataset/Original Dataset
+Discovered 2137 images across categories.
+Train batches: 107 | Val batches: 14 | Test batches: 214
+Classes: {'Bacterial Blight': 0, 'Curl Virus': 1, 'Healthy Leaf': 2, 'Herbicide Growth Damage': 3, 'Leaf Hopper Jassids': 4, 'Leaf Redding': 5, 'Leaf Variegation': 6}
+
+
+==================================================
+
+=== Cell 4 Outputs ===
+Data analysis is in process...
+
+Data analysis is in process...
+
+Data analysis is in process...
+
+
+<Figure size 2000x1000 with 1 Axes>
+<Figure size 2000x1000 with 1 Axes>
+<Figure size 2000x1000 with 1 Axes>
+
+==================================================
+
+=== Cell 5 Outputs ===
+Generating pie chart...
+
+
+<Figure size 800x800 with 1 Axes>
+Generating pie chart...
+
+
+<Figure size 800x800 with 1 Axes>
+Generating pie chart...
+
+
+<Figure size 800x800 with 1 Axes>
+
+==================================================
+
+=== Cell 7 Outputs ===
+TRAIN Data Visualization is in process...
+
+
+<Figure size 2500x2000 with 20 Axes>
+VAL Data Visualization is in process...
+
+
+<Figure size 2500x2000 with 20 Axes>
+TEST Data Visualization is in process...
+
+
+<Figure size 2500x2000 with 20 Axes>
+
+==================================================
+
+=== Cell 10 Outputs ===
+Using device: cuda
+
+================================================================================
+  TRAINING: ResNet50 (resnet50)
+================================================================================
+
+Start training...
+
+Epoch 1/50:
+
+
+Training: 107it [00:18,  5.77it/s]
+1-epoch train process is completed!
+
+1-epoch train loss          -> 1.360
+1-epoch train accuracy      -> 0.513
+1-epoch train f1-score      -> 0.513
+
+
+
+Validation: 14it [00:01, 11.78it/s]
+
+1-epoch validation process is completed!
+
+1-epoch validation loss          -> 0.677
+1-epoch validation accuracy      -> 0.808
+1-epoch validation f1-score      -> 0.808
+
+Best model saved with F1-Score: 0.808
+
+Epoch 2/50:
+
+
+Training: 107it [00:19,  5.56it/s]
+2-epoch train process is completed!
+
+2-epoch train loss          -> 0.438
+2-epoch train accuracy      -> 0.885
+2-epoch train f1-score      -> 0.885
+
+
+
+Validation: 14it [00:01, 11.44it/s]
+
+2-epoch validation process is completed!
+
+2-epoch validation loss          -> 0.227
+2-epoch validation accuracy      -> 0.930
+2-epoch validation f1-score      -> 0.930
+
+Best model saved with F1-Score: 0.930
+
+Epoch 3/50:
+
+
+Training: 107it [00:19,  5.50it/s]
+3-epoch train process is completed!
+
+3-epoch train loss          -> 0.205
+3-epoch train accuracy      -> 0.940
+3-epoch train f1-score      -> 0.940
+
+
+
+Validation: 14it [00:01, 11.40it/s]
+
+3-epoch validation process is completed!
+
+3-epoch validation loss          -> 0.123
+3-epoch validation accuracy      -> 0.963
+3-epoch validation f1-score      -> 0.963
+
+Best model saved with F1-Score: 0.963
+
+Epoch 4/50:
+
+
+Training: 107it [00:18,  5.65it/s]
+4-epoch train process is completed!
+
+4-epoch train loss          -> 0.109
+4-epoch train accuracy      -> 0.973
+4-epoch train f1-score      -> 0.973
+
+
+
+Validation: 14it [00:01, 11.94it/s]
+4-epoch validation process is completed!
+
+4-epoch validation loss          -> 0.127
+4-epoch validation accuracy      -> 0.958
+4-epoch validation f1-score      -> 0.958
+
+No improvement for 1 epoch(s).
+
+Epoch 5/50:
+
+
+
+Training: 107it [00:18,  5.66it/s]
+5-epoch train process is completed!
+
+5-epoch train loss          -> 0.073
+5-epoch train accuracy      -> 0.984
+5-epoch train f1-score      -> 0.984
+
+
+
+Validation: 14it [00:01, 11.89it/s]
+5-epoch validation process is completed!
+
+5-epoch validation loss          -> 0.132
+5-epoch validation accuracy      -> 0.953
+5-epoch validation f1-score      -> 0.953
+
+No improvement for 2 epoch(s).
+
+Epoch 6/50:
+
+
+
+Training: 107it [00:19,  5.59it/s]
+6-epoch train process is completed!
+
+6-epoch train loss          -> 0.042
+6-epoch train accuracy      -> 0.989
+6-epoch train f1-score      -> 0.989
+
+
+
+Validation: 14it [00:01, 11.92it/s]
+
+6-epoch validation process is completed!
+
+6-epoch validation loss          -> 0.081
+6-epoch validation accuracy      -> 0.967
+6-epoch validation f1-score      -> 0.967
+
+No improvement for 3 epoch(s).
+Early stopping triggered.
+
+ResNet50 -> Best Val F1: 0.9626 | Params: 23.52M | Time: 123.5s
+
+
+================================================================================
+  TRAINING: EfficientNet-B0 (efficientnet_b0)
+================================================================================
+
+Start training...
+
+Epoch 1/50:
+
+
+Training: 107it [00:09, 10.83it/s]
+1-epoch train process is completed!
+
+1-epoch train loss          -> 0.708
+1-epoch train accuracy      -> 0.798
+1-epoch train f1-score      -> 0.798
+
+
+
+Validation: 14it [00:01, 13.05it/s]
+1-epoch validation process is completed!
+
+1-epoch validation loss          -> 0.417
+1-epoch validation accuracy      -> 0.888
+1-epoch validation f1-score      -> 0.888
+
+Best model saved with F1-Score: 0.888
+
+Epoch 2/50:
+
+
+
+Training: 107it [00:09, 10.81it/s]
+2-epoch train process is completed!
+
+2-epoch train loss          -> 0.209
+2-epoch train accuracy      -> 0.940
+2-epoch train f1-score      -> 0.940
+
+
+
+Validation: 14it [00:01, 13.44it/s]
+2-epoch validation process is completed!
+
+2-epoch validation loss          -> 0.107
+2-epoch validation accuracy      -> 0.967
+2-epoch validation f1-score      -> 0.967
+
+Best model saved with F1-Score: 0.967
+
+Epoch 3/50:
+
+
+
+Training: 107it [00:09, 10.76it/s]
+3-epoch train process is completed!
+
+3-epoch train loss          -> 0.085
+3-epoch train accuracy      -> 0.972
+3-epoch train f1-score      -> 0.972
+
+
+
+Validation: 14it [00:01, 12.88it/s]
+3-epoch validation process is completed!
+
+3-epoch validation loss          -> 0.110
+3-epoch validation accuracy      -> 0.963
+3-epoch validation f1-score      -> 0.963
+
+No improvement for 1 epoch(s).
+
+Epoch 4/50:
+
+
+
+Training: 107it [00:09, 10.85it/s]
+4-epoch train process is completed!
+
+4-epoch train loss          -> 0.047
+4-epoch train accuracy      -> 0.987
+4-epoch train f1-score      -> 0.987
+
+
+
+Validation: 14it [00:01, 13.29it/s]
+4-epoch validation process is completed!
+
+4-epoch validation loss          -> 0.259
+4-epoch validation accuracy      -> 0.963
+4-epoch validation f1-score      -> 0.963
+
+No improvement for 2 epoch(s).
+
+Epoch 5/50:
+
+
+
+Training: 107it [00:09, 10.91it/s]
+5-epoch train process is completed!
+
+5-epoch train loss          -> 0.041
+5-epoch train accuracy      -> 0.989
+5-epoch train f1-score      -> 0.989
+
+
+
+Validation: 14it [00:01, 13.02it/s]
+5-epoch validation process is completed!
+
+5-epoch validation loss          -> 0.051
+5-epoch validation accuracy      -> 0.986
+5-epoch validation f1-score      -> 0.986
+
+Best model saved with F1-Score: 0.986
+
+Epoch 6/50:
+
+
+
+Training: 107it [00:09, 10.87it/s]
+6-epoch train process is completed!
+
+6-epoch train loss          -> 0.023
+6-epoch train accuracy      -> 0.994
+6-epoch train f1-score      -> 0.994
+
+
+
+Validation: 14it [00:01, 13.18it/s]
+6-epoch validation process is completed!
+
+6-epoch validation loss          -> 0.078
+6-epoch validation accuracy      -> 0.967
+6-epoch validation f1-score      -> 0.967
+
+No improvement for 1 epoch(s).
+
+Epoch 7/50:
+
+
+
+Training: 107it [00:09, 10.81it/s]
+7-epoch train process is completed!
+
+7-epoch train loss          -> 0.044
+7-epoch train accuracy      -> 0.988
+7-epoch train f1-score      -> 0.988
+
+
+
+Validation: 14it [00:01, 12.72it/s]
+7-epoch validation process is completed!
+
+7-epoch validation loss          -> 0.107
+7-epoch validation accuracy      -> 0.953
+7-epoch validation f1-score      -> 0.953
+
+No improvement for 2 epoch(s).
+
+Epoch 8/50:
+
+
+
+Training: 107it [00:09, 10.85it/s]
+8-epoch train process is completed!
+
+8-epoch train loss          -> 0.058
+8-epoch train accuracy      -> 0.982
+8-epoch train f1-score      -> 0.982
+
+
+
+Validation: 14it [00:01, 13.43it/s]
+
+8-epoch validation process is completed!
+
+8-epoch validation loss          -> 0.226
+8-epoch validation accuracy      -> 0.925
+8-epoch validation f1-score      -> 0.925
+
+No improvement for 3 epoch(s).
+Early stopping triggered.
+
+EfficientNet-B0 -> Best Val F1: 0.9860 | Params: 4.02M | Time: 89.8s
+
+
+================================================================================
+  TRAINING: MobileNetV3-Large (mobilenetv3_large_100)
+================================================================================
+
+Start training...
+
+Epoch 1/50:
+
+
+Training: 107it [00:08, 13.14it/s]
+1-epoch train process is completed!
+
+1-epoch train loss          -> 0.744
+1-epoch train accuracy      -> 0.806
+1-epoch train f1-score      -> 0.806
+
+
+
+Validation: 14it [00:01, 13.63it/s]
+1-epoch validation process is completed!
+
+1-epoch validation loss          -> 0.260
+1-epoch validation accuracy      -> 0.925
+1-epoch validation f1-score      -> 0.925
+
+Best model saved with F1-Score: 0.925
+
+Epoch 2/50:
+
+
+
+Training: 107it [00:07, 13.45it/s]
+2-epoch train process is completed!
+
+2-epoch train loss          -> 0.131
+2-epoch train accuracy      -> 0.963
+2-epoch train f1-score      -> 0.963
+
+
+
+Validation: 14it [00:01, 13.76it/s]
+2-epoch validation process is completed!
+
+2-epoch validation loss          -> 0.162
+2-epoch validation accuracy      -> 0.949
+2-epoch validation f1-score      -> 0.949
+
+Best model saved with F1-Score: 0.949
+
+Epoch 3/50:
+
+
+
+Training: 107it [00:07, 13.69it/s]
+3-epoch train process is completed!
+
+3-epoch train loss          -> 0.110
+3-epoch train accuracy      -> 0.968
+3-epoch train f1-score      -> 0.968
+
+
+
+Validation: 14it [00:01, 13.39it/s]
+3-epoch validation process is completed!
+
+3-epoch validation loss          -> 0.273
+3-epoch validation accuracy      -> 0.921
+3-epoch validation f1-score      -> 0.921
+
+No improvement for 1 epoch(s).
+
+Epoch 4/50:
+
+
+
+Training: 107it [00:08, 13.36it/s]
+4-epoch train process is completed!
+
+4-epoch train loss          -> 0.113
+4-epoch train accuracy      -> 0.968
+4-epoch train f1-score      -> 0.968
+
+
+
+Validation: 14it [00:01, 13.55it/s]
+4-epoch validation process is completed!
+
+4-epoch validation loss          -> 0.191
+4-epoch validation accuracy      -> 0.949
+4-epoch validation f1-score      -> 0.949
+
+No improvement for 2 epoch(s).
+
+Epoch 5/50:
+
+
+
+Training: 107it [00:07, 13.50it/s]
+5-epoch train process is completed!
+
+5-epoch train loss          -> 0.043
+5-epoch train accuracy      -> 0.985
+5-epoch train f1-score      -> 0.985
+
+
+
+Validation: 14it [00:01, 13.26it/s]
+
+5-epoch validation process is completed!
+
+5-epoch validation loss          -> 0.173
+5-epoch validation accuracy      -> 0.949
+5-epoch validation f1-score      -> 0.949
+
+No improvement for 3 epoch(s).
+Early stopping triggered.
+
+MobileNetV3-Large -> Best Val F1: 0.9486 | Params: 4.21M | Time: 46.5s
+
+
+================================================================================
+  TRAINING: DenseNet121 (densenet121)
+================================================================================
+
+Start training...
+
+Epoch 1/50:
+
+
+Training: 107it [00:18,  5.65it/s]
+1-epoch train process is completed!
+
+1-epoch train loss          -> 0.635
+1-epoch train accuracy      -> 0.803
+1-epoch train f1-score      -> 0.803
+
+
+
+Validation: 14it [00:01, 11.55it/s]
+
+1-epoch validation process is completed!
+
+1-epoch validation loss          -> 0.224
+1-epoch validation accuracy      -> 0.935
+1-epoch validation f1-score      -> 0.935
+
+Best model saved with F1-Score: 0.935
+
+Epoch 2/50:
+
+
+Training: 107it [00:19,  5.49it/s]
+2-epoch train process is completed!
+
+2-epoch train loss          -> 0.189
+2-epoch train accuracy      -> 0.944
+2-epoch train f1-score      -> 0.944
+
+
+
+Validation: 14it [00:01, 11.40it/s]
+
+2-epoch validation process is completed!
+
+2-epoch validation loss          -> 0.154
+2-epoch validation accuracy      -> 0.972
+2-epoch validation f1-score      -> 0.972
+
+Best model saved with F1-Score: 0.972
+
+Epoch 3/50:
+
+
+Training: 107it [00:18,  5.64it/s]
+3-epoch train process is completed!
+
+3-epoch train loss          -> 0.111
+3-epoch train accuracy      -> 0.971
+3-epoch train f1-score      -> 0.971
+
+
+
+Validation: 14it [00:01, 11.28it/s]
+
+3-epoch validation process is completed!
+
+3-epoch validation loss          -> 0.099
+3-epoch validation accuracy      -> 0.991
+3-epoch validation f1-score      -> 0.991
+
+Best model saved with F1-Score: 0.991
+
+Epoch 4/50:
+
+
+Training: 107it [00:18,  5.65it/s]
+4-epoch train process is completed!
+
+4-epoch train loss          -> 0.070
+4-epoch train accuracy      -> 0.981
+4-epoch train f1-score      -> 0.981
+
+
+
+Validation: 14it [00:01, 11.52it/s]
+
+4-epoch validation process is completed!
+
+4-epoch validation loss          -> 0.135
+4-epoch validation accuracy      -> 0.972
+4-epoch validation f1-score      -> 0.972
+
+No improvement for 1 epoch(s).
+
+Epoch 5/50:
+
+
+Training: 107it [00:18,  5.66it/s]
+5-epoch train process is completed!
+
+5-epoch train loss          -> 0.055
+5-epoch train accuracy      -> 0.988
+5-epoch train f1-score      -> 0.988
+
+
+
+Validation: 14it [00:01, 11.15it/s]
+5-epoch validation process is completed!
+
+5-epoch validation loss          -> 0.128
+5-epoch validation accuracy      -> 0.967
+5-epoch validation f1-score      -> 0.967
+
+No improvement for 2 epoch(s).
+
+Epoch 6/50:
+
+
+
+Training: 107it [00:18,  5.65it/s]
+6-epoch train process is completed!
+
+6-epoch train loss          -> 0.057
+6-epoch train accuracy      -> 0.988
+6-epoch train f1-score      -> 0.988
+
+
+
+Validation: 14it [00:01, 11.80it/s]
+6-epoch validation process is completed!
+
+6-epoch validation loss          -> 0.113
+6-epoch validation accuracy      -> 0.977
+6-epoch validation f1-score      -> 0.977
+
+No improvement for 3 epoch(s).
+Early stopping triggered.
+
+DenseNet121 -> Best Val F1: 0.9907 | Params: 6.96M | Time: 123.5s
+
+
+====================================================================================================
+                                      MODEL COMPARISON SUMMARY                                      
+====================================================================================================
+Model                  Best Val Acc  Best Val F1  Best Val Loss   Params (M)   Time (min)   Epochs
+----------------------------------------------------------------------------------------------------
+ResNet50                     0.9673       0.9626         0.0815        23.52          2.1        6
+EfficientNet-B0              0.9860       0.9860         0.0505         4.02          1.5        8
+MobileNetV3-Large            0.9486       0.9486         0.1621         4.21          0.8        5
+DenseNet121                  0.9907       0.9907         0.0987         6.96          2.1        6
+----------------------------------------------------------------------------------------------------
+
+🏆 BEST MODEL: DenseNet121 (Val F1 = 0.9907)
+
+
+
+
+==================================================
+
+=== Cell 12 Outputs ===
+
+============================================================
+  Learning Curves: ResNet50
+============================================================
+
+<Figure size 1000x500 with 1 Axes>
+<Figure size 1000x500 with 1 Axes>
+<Figure size 1000x500 with 1 Axes>
+
+============================================================
+  Learning Curves: EfficientNet-B0
+============================================================
+
+<Figure size 1000x500 with 1 Axes>
+<Figure size 1000x500 with 1 Axes>
+<Figure size 1000x500 with 1 Axes>
+
+============================================================
+  Learning Curves: MobileNetV3-Large
+============================================================
+
+<Figure size 1000x500 with 1 Axes>
+<Figure size 1000x500 with 1 Axes>
+<Figure size 1000x500 with 1 Axes>
+
+============================================================
+  Learning Curves: DenseNet121
+============================================================
+
+<Figure size 1000x500 with 1 Axes>
+<Figure size 1000x500 with 1 Axes>
+<Figure size 1000x500 with 1 Axes>
+
+==================================================
+
+=== Cell 14 Outputs ===
+<Figure size 2200x600 with 3 Axes>
+<Figure size 2400x600 with 3 Axes>
+<Figure size 800x800 with 1 Axes>
+<Figure size 1000x700 with 1 Axes>
+<Figure size 1000x500 with 1 Axes>
+
+==============================================================================================================
+                                        COMPREHENSIVE MODEL COMPARISON                                        
+==============================================================================================================
+Model                   Accuracy (%)     F1 (%)       Loss   Params (M)   Time (min)   Epochs    Params/F1
+--------------------------------------------------------------------------------------------------------------
+ResNet50                       96.73      96.26     0.0815        23.52          2.1        6       0.2444
+EfficientNet-B0                98.60      98.60     0.0505         4.02          1.5        8       0.0407
+MobileNetV3-Large              94.86      94.86     0.1621         4.21          0.8        5       0.0444
+DenseNet121                    99.07      99.07     0.0987         6.96          2.1        6       0.0703
+--------------------------------------------------------------------------------------------------------------
+
+🏆 BEST ACCURACY/F1: DenseNet121 (F1 = 99.07%)
+⚡ MOST EFFICIENT: EfficientNet-B0
+📱 BEST FOR MOBILE: MobileNetV3-Large (4.21M params)
+
+
+==================================================
+
+=== Cell 16 Outputs ===
+Requirement already satisfied: grad-cam==1.4.6 in /usr/local/lib/python3.12/dist-packages (1.4.6)
+Requirement already satisfied: numpy in /usr/local/lib/python3.12/dist-packages (from grad-cam==1.4.6) (2.0.2)
+Requirement already satisfied: Pillow in /usr/local/lib/python3.12/dist-packages (from grad-cam==1.4.6) (11.3.0)
+Requirement already satisfied: torch>=1.7.1 in /usr/local/lib/python3.12/dist-packages (from grad-cam==1.4.6) (2.10.0+cu128)
+Requirement already satisfied: torchvision>=0.8.2 in /usr/local/lib/python3.12/dist-packages (from grad-cam==1.4.6) (0.25.0+cu128)
+Requirement already satisfied: ttach in /usr/local/lib/python3.12/dist-packages (from grad-cam==1.4.6) (0.0.3)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.12/dist-packages (from grad-cam==1.4.6) (4.67.3)
+Requirement already satisfied: opencv-python in /usr/local/lib/python3.12/dist-packages (from grad-cam==1.4.6) (4.13.0.92)
+Requirement already satisfied: matplotlib in /usr/local/lib/python3.12/dist-packages (from grad-cam==1.4.6) (3.10.0)
+Requirement already satisfied: scikit-learn in /usr/local/lib/python3.12/dist-packages (from grad-cam==1.4.6) (1.6.1)
+Requirement already satisfied: filelock in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (3.29.0)
+Requirement already satisfied: typing-extensions>=4.10.0 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (4.15.0)
+Requirement already satisfied: setuptools in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (81.0.0)
+Requirement already satisfied: sympy>=1.13.3 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (3.6.1)
+Requirement already satisfied: jinja2 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (3.1.6)
+Requirement already satisfied: fsspec>=0.8.5 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (2025.3.0)
+Requirement already satisfied: cuda-bindings==12.9.4 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (12.9.4)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.8.93 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (12.8.93)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.8.90 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (12.8.90)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.8.90 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (12.8.90)
+Requirement already satisfied: nvidia-cudnn-cu12==9.10.2.21 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (9.10.2.21)
+Requirement already satisfied: nvidia-cublas-cu12==12.8.4.1 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (12.8.4.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.3.83 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (11.3.3.83)
+Requirement already satisfied: nvidia-curand-cu12==10.3.9.90 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (10.3.9.90)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.3.90 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (11.7.3.90)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.8.93 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (12.5.8.93)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.7.1 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (0.7.1)
+Requirement already satisfied: nvidia-nccl-cu12==2.27.5 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (2.27.5)
+Requirement already satisfied: nvidia-nvshmem-cu12==3.4.5 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (3.4.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.8.90 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (12.8.90)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.8.93 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (12.8.93)
+Requirement already satisfied: nvidia-cufile-cu12==1.13.1.3 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (1.13.1.3)
+Requirement already satisfied: triton==3.6.0 in /usr/local/lib/python3.12/dist-packages (from torch>=1.7.1->grad-cam==1.4.6) (3.6.0)
+Requirement already satisfied: cuda-pathfinder~=1.1 in /usr/local/lib/python3.12/dist-packages (from cuda-bindings==12.9.4->torch>=1.7.1->grad-cam==1.4.6) (1.5.3)
+Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib->grad-cam==1.4.6) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in /usr/local/lib/python3.12/dist-packages (from matplotlib->grad-cam==1.4.6) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /usr/local/lib/python3.12/dist-packages (from matplotlib->grad-cam==1.4.6) (4.62.1)
+Requirement already satisfied: kiwisolver>=1.3.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib->grad-cam==1.4.6) (1.5.0)
+Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.12/dist-packages (from matplotlib->grad-cam==1.4.6) (26.1)
+Requirement already satisfied: pyparsing>=2.3.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib->grad-cam==1.4.6) (3.3.2)
+Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.12/dist-packages (from matplotlib->grad-cam==1.4.6) (2.9.0.post0)
+Requirement already satisfied: scipy>=1.6.0 in /usr/local/lib/python3.12/dist-packages (from scikit-learn->grad-cam==1.4.6) (1.16.3)
+Requirement already satisfied: joblib>=1.2.0 in /usr/local/lib/python3.12/dist-packages (from scikit-learn->grad-cam==1.4.6) (1.5.3)
+Requirement already satisfied: threadpoolctl>=3.1.0 in /usr/local/lib/python3.12/dist-packages (from scikit-learn->grad-cam==1.4.6) (3.6.0)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.12/dist-packages (from python-dateutil>=2.7->matplotlib->grad-cam==1.4.6) (1.17.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.12/dist-packages (from sympy>=1.13.3->torch>=1.7.1->grad-cam==1.4.6) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/dist-packages (from jinja2->torch>=1.7.1->grad-cam==1.4.6) (3.0.3)
+
+Evaluating best model: DenseNet121 (densenet121)
+Loading checkpoint: saved_models/densenet121_best_model.pth
+
+
+Inference: 214it [00:04, 44.61it/s]
+
+
+Accuracy of the model on the test data -> 0.963
+F1 score of the model on the test data -> 0.963
+
+============================================================
+DETAILED CLASSIFICATION REPORT
+============================================================
+                         precision    recall  f1-score   support
+
+       Bacterial Blight     0.9600    0.9600    0.9600        25
+             Curl Virus     0.9348    1.0000    0.9663        43
+           Healthy Leaf     1.0000    0.8462    0.9167        26
+Herbicide Growth Damage     1.0000    1.0000    1.0000        28
+    Leaf Hopper Jassids     0.9565    0.9565    0.9565        23
+           Leaf Redding     0.9500    0.9828    0.9661        58
+       Leaf Variegation     1.0000    0.9091    0.9524        11
+
+               accuracy                         0.9626       214
+              macro avg     0.9716    0.9506    0.9597       214
+           weighted avg     0.9640    0.9626    0.9621       214
+
+
+<Figure size 2000x1000 with 40 Axes>
+<Figure size 1200x1000 with 2 Axes>
+
+==================================================
+
+=== Cell 18 Outputs ===
+
+============================================================
+  Testing: ResNet50
+============================================================
+
+Testing ResNet50: 100%|██████████| 214/214 [00:02<00:00, 86.69it/s] 
+
+ResNet50: Test Acc = 93.93% | Test F1 = 93.93%
+
+============================================================
+  Testing: EfficientNet-B0
+============================================================
+
+Testing EfficientNet-B0: 100%|██████████| 214/214 [00:02<00:00, 72.40it/s]
+
+EfficientNet-B0: Test Acc = 95.33% | Test F1 = 95.33%
+
+============================================================
+  Testing: MobileNetV3-Large
+============================================================
+
+Testing MobileNetV3-Large: 100%|██████████| 214/214 [00:02<00:00, 83.73it/s]
+
+MobileNetV3-Large: Test Acc = 95.79% | Test F1 = 95.79%
+
+============================================================
+  Testing: DenseNet121
+============================================================
+
+Testing DenseNet121: 100%|██████████| 214/214 [00:04<00:00, 45.87it/s]
+
+DenseNet121: Test Acc = 96.26% | Test F1 = 96.26%
+
+==========================================================================================
+                                  FINAL TEST SET RESULTS                                  
+==========================================================================================
+Model                   Test Accuracy (%)  Test F1-Score (%)     Val F1 (%)   Params (M)
+------------------------------------------------------------------------------------------
+ResNet50                            93.93              93.93          96.26        23.52
+EfficientNet-B0                     95.33              95.33          98.60         4.02
+MobileNetV3-Large                   95.79              95.79          94.86         4.21
+DenseNet121                         96.26              96.26          99.07         6.96
+------------------------------------------------------------------------------------------
+
+🏆 BEST ON TEST SET: DenseNet121 (Test F1 = 96.26%)
+
+<Figure size 1200x600 with 1 Axes>
+<Figure size 2400x500 with 4 Axes>
+
+
+✅ Multi-model evaluation complete! Use these results to select the best model for your Android deployment.
+
+
+==================================================
+
+=== Cell 20 Outputs ===
+CottonNet Architecture Summary:
+  Total parameters:        4,870,275 (4.87M)
+  Trainable parameters:    4,561,615 (4.56M)
+  Frozen parameters:         308,660 (0.31M)
+  Feature dimension:    1280
+
+
+==================================================
+
+=== Cell 21 Outputs ===
+Discovered 2137 images across categories.
+Augmented train batches: 107
+Val batches (original transforms): 14
+Test batches (original transforms): 214
+
+
+==================================================
+
+=== Cell 22 Outputs ===
+Loading DenseNet121 teacher model...
+Loaded teacher from: saved_models/densenet121_best_model.pth
+
+Creating CottonNet student model...
+  Total params:     4.87M
+  Trainable params: 4.56M (Phase 1)
+
+======================================================================
+  PHASE 1: Head-Only Training (backbone frozen)
+  LR=0.001, Alpha=0.7, Patience=5
+  Trainable params: 4,561,615 (4.56M)
+======================================================================
+  Epoch  1/10 | Train F1: 0.7203 | Val F1: 0.9019 | Val Loss: 0.7259 | LR: 9.05e-04
+  >> Best model saved! F1 = 0.9019
+  Epoch  2/10 | Train F1: 0.8806 | Val F1: 0.9486 | Val Loss: 0.6700 | LR: 6.55e-04
+  >> Best model saved! F1 = 0.9486
+  Epoch  3/10 | Train F1: 0.9081 | Val F1: 0.9299 | Val Loss: 0.6821 | LR: 3.46e-04
+  Epoch  4/10 | Train F1: 0.9315 | Val F1: 0.9486 | Val Loss: 0.6417 | LR: 9.64e-05
+  Epoch  5/10 | Train F1: 0.9479 | Val F1: 0.9579 | Val Loss: 0.6118 | LR: 1.00e-03
+  >> Best model saved! F1 = 0.9579
+  Epoch  6/10 | Train F1: 0.9064 | Val F1: 0.9486 | Val Loss: 0.6635 | LR: 9.76e-04
+  Epoch  7/10 | Train F1: 0.9210 | Val F1: 0.9533 | Val Loss: 0.6461 | LR: 9.05e-04
+  Epoch  8/10 | Train F1: 0.9315 | Val F1: 0.9673 | Val Loss: 0.6077 | LR: 7.94e-04
+  >> Best model saved! F1 = 0.9673
+  Epoch  9/10 | Train F1: 0.9526 | Val F1: 0.9720 | Val Loss: 0.6465 | LR: 6.55e-04
+  Epoch 10/10 | Train F1: 0.9549 | Val F1: 0.9720 | Val Loss: 0.6199 | LR: 5.01e-04
+
+======================================================================
+  PHASE 2: Partial Fine-Tune + Knowledge Distillation
+  LR=0.0001, Alpha=0.7, Patience=8
+  Trainable params: 4,561,615 (4.56M)
+======================================================================
+  Epoch  1/30 | Train F1: 0.9666 | Val F1: 0.9673 | Val Loss: 0.6019 | LR: 9.05e-05
+  Epoch  2/30 | Train F1: 0.9690 | Val F1: 0.9813 | Val Loss: 0.5967 | LR: 6.58e-05
+  >> Best model saved! F1 = 0.9813
+  Epoch  3/30 | Train F1: 0.9661 | Val F1: 0.9673 | Val Loss: 0.6076 | LR: 3.52e-05
+  Epoch  4/30 | Train F1: 0.9719 | Val F1: 0.9720 | Val Loss: 0.6027 | LR: 1.05e-05
+  Epoch  5/30 | Train F1: 0.9778 | Val F1: 0.9673 | Val Loss: 0.6014 | LR: 1.00e-04
+  Epoch  6/30 | Train F1: 0.9824 | Val F1: 0.9720 | Val Loss: 0.6133 | LR: 9.76e-05
+  Epoch  7/30 | Train F1: 0.9731 | Val F1: 0.9673 | Val Loss: 0.6127 | LR: 9.05e-05
+  Epoch  8/30 | Train F1: 0.9801 | Val F1: 0.9720 | Val Loss: 0.6047 | LR: 7.96e-05
+  Epoch  9/30 | Train F1: 0.9836 | Val F1: 0.9673 | Val Loss: 0.6076 | LR: 6.58e-05
+  Epoch 10/30 | Train F1: 0.9883 | Val F1: 0.9720 | Val Loss: 0.6029 | LR: 5.05e-05
+  Early stopping after 10 epochs
+
+======================================================================
+  PHASE 3: Full Fine-Tune + Light KD
+  LR=1e-05, Alpha=0.3, Patience=5
+  Trainable params: 4,870,275 (4.87M)
+======================================================================
+  Epoch  1/10 | Train F1: 0.9754 | Val F1: 0.9813 | Val Loss: 0.6262 | LR: 9.14e-06
+  Epoch  2/10 | Train F1: 0.9819 | Val F1: 0.9673 | Val Loss: 0.6309 | LR: 6.89e-06
+  Epoch  3/10 | Train F1: 0.9743 | Val F1: 0.9766 | Val Loss: 0.6307 | LR: 4.11e-06
+  Epoch  4/10 | Train F1: 0.9748 | Val F1: 0.9720 | Val Loss: 0.6206 | LR: 1.86e-06
+  Epoch  5/10 | Train F1: 0.9713 | Val F1: 0.9813 | Val Loss: 0.6148 | LR: 1.00e-05
+  Early stopping after 5 epochs
+
+======================================================================
+  TRAINING COMPLETE
+  Best Val F1: 0.9813
+  Total time: 409.8s (6.8 min)
+  Total epochs trained: 25
+======================================================================
+
+CottonNet stored in all_results. Ready for comparison!
+
+
+==================================================
+
+=== Cell 24 Outputs ===
+<Figure size 2400x600 with 3 Axes>
+
+==================================================
+
+=== Cell 26 Outputs ===
+Evaluating CottonNet on test set...
+
+Testing CottonNet: 100%|██████████| 214/214 [00:03<00:00, 70.57it/s]
+
+CottonNet Test Accuracy: 98.60%
+CottonNet Test F1-Score: 98.60%
+
+============================================================
+COTTONNET DETAILED CLASSIFICATION REPORT
+============================================================
+                         precision    recall  f1-score   support
+
+       Bacterial Blight     1.0000    0.9600    0.9796        25
+             Curl Virus     1.0000    0.9767    0.9882        43
+           Healthy Leaf     0.9630    1.0000    0.9811        26
+Herbicide Growth Damage     1.0000    1.0000    1.0000        28
+    Leaf Hopper Jassids     1.0000    0.9565    0.9778        23
+           Leaf Redding     0.9667    1.0000    0.9831        58
+       Leaf Variegation     1.0000    1.0000    1.0000        11
+
+               accuracy                         0.9860       214
+              macro avg     0.9899    0.9848    0.9871       214
+           weighted avg     0.9865    0.9860    0.9860       214
+
+
+<Figure size 2400x700 with 3 Axes>
+<Figure size 900x900 with 1 Axes>
+<Figure size 1100x700 with 1 Axes>
+
+========================================================================================================================
+                                     FINAL 5-MODEL COMPARISON (INCLUDING COTTONNET)                                     
+========================================================================================================================
+Model                    Val F1 (%)   Test F1 (%)    Gap (%)   Params (M)  Trainable (M)   Time (min)   Epochs
+------------------------------------------------------------------------------------------------------------------------
+ResNet50                      96.26         93.93       2.34        23.52          23.52          2.1        6
+EfficientNet-B0               98.60         95.33       3.27         4.02           4.02          1.5        8
+MobileNetV3-Large             94.86         95.79      -0.93         4.21           4.21          0.8        5
+DenseNet121                   99.07         96.26       2.80         6.96           6.96          2.1        6
+CottonNet                     98.13         98.60      -0.47         4.87           4.56          6.8       25
+------------------------------------------------------------------------------------------------------------------------
+
+🏆 BEST ON TEST SET: CottonNet (Test F1 = 98.60%)
+🧠 COTTONNET: Test F1 = 98.60% | Val-Test Gap = -0.47% | Params = 4.87M
+
+<Figure size 3000x550 with 5 Axes>
+
+==================================================
+
+=== Cell 28 Outputs ===
+Loading CottonNet for GradCAM visualization...
+
+Inference: 214it [00:03, 69.11it/s]
+
+
+Accuracy of the model on the test data -> 0.986
+F1 score of the model on the test data -> 0.986
+
+============================================================
+DETAILED CLASSIFICATION REPORT
+============================================================
+                         precision    recall  f1-score   support
+
+       Bacterial Blight     1.0000    0.9600    0.9796        25
+             Curl Virus     1.0000    0.9767    0.9882        43
+           Healthy Leaf     0.9630    1.0000    0.9811        26
+Herbicide Growth Damage     1.0000    1.0000    1.0000        28
+    Leaf Hopper Jassids     1.0000    0.9565    0.9778        23
+           Leaf Redding     0.9667    1.0000    0.9831        58
+       Leaf Variegation     1.0000    1.0000    1.0000        11
+
+               accuracy                         0.9860       214
+              macro avg     0.9899    0.9848    0.9871       214
+           weighted avg     0.9865    0.9860    0.9860       214
+
+
+<Figure size 2000x1000 with 40 Axes>
+<Figure size 1200x1000 with 2 Axes>
+
+==================================================
+

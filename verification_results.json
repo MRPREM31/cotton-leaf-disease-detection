@@ -1,0 +1,354 @@
+{
+  "model_name": "CottonNet",
+  "checkpoint": "cottonnet_best_model.pth",
+  "total_parameters": 4870275,
+  "trainable_parameters": 4870275,
+  "class_mapping": {
+    "0": "Bacterial Blight",
+    "1": "Curl Virus",
+    "2": "Healthy Leaf",
+    "3": "Herbicide Growth Damage",
+    "4": "Leaf Hopper Jassids",
+    "5": "Leaf Redding",
+    "6": "Leaf Variegation"
+  },
+  "num_test_samples_evaluated": 12,
+  "predictions": [
+    {
+      "file": "leaf_10.jpg",
+      "predicted_class": "Undetermined / OOD",
+      "class_index": 2,
+      "confidence": 0.4148,
+      "confidence_percentage": "41.48%",
+      "is_rejected": true,
+      "top3": [
+        {
+          "rank": 1,
+          "class_name": "Healthy Leaf",
+          "probability": 0.4147716164588928,
+          "percentage": "41.48%"
+        },
+        {
+          "rank": 2,
+          "class_name": "Bacterial Blight",
+          "probability": 0.24295561015605927,
+          "percentage": "24.30%"
+        },
+        {
+          "rank": 3,
+          "class_name": "Herbicide Growth Damage",
+          "probability": 0.15029174089431763,
+          "percentage": "15.03%"
+        }
+      ]
+    },
+    {
+      "file": "leaf_11.jpg",
+      "predicted_class": "Undetermined / OOD",
+      "class_index": 2,
+      "confidence": 0.4025,
+      "confidence_percentage": "40.25%",
+      "is_rejected": true,
+      "top3": [
+        {
+          "rank": 1,
+          "class_name": "Healthy Leaf",
+          "probability": 0.4024686813354492,
+          "percentage": "40.25%"
+        },
+        {
+          "rank": 2,
+          "class_name": "Bacterial Blight",
+          "probability": 0.259531706571579,
+          "percentage": "25.95%"
+        },
+        {
+          "rank": 3,
+          "class_name": "Herbicide Growth Damage",
+          "probability": 0.14503419399261475,
+          "percentage": "14.50%"
+        }
+      ]
+    },
+    {
+      "file": "leaf_13.jpg",
+      "predicted_class": "Undetermined / OOD",
+      "class_index": 2,
+      "confidence": 0.4808,
+      "confidence_percentage": "48.08%",
+      "is_rejected": true,
+      "top3": [
+        {
+          "rank": 1,
+          "class_name": "Healthy Leaf",
+          "probability": 0.48078957200050354,
+          "percentage": "48.08%"
+        },
+        {
+          "rank": 2,
+          "class_name": "Bacterial Blight",
+          "probability": 0.23951686918735504,
+          "percentage": "23.95%"
+        },
+        {
+          "rank": 3,
+          "class_name": "Herbicide Growth Damage",
+          "probability": 0.11077754199504852,
+          "percentage": "11.08%"
+        }
+      ]
+    },
+    {
+      "file": "leaf_2.jpg",
+      "predicted_class": "Undetermined / OOD",
+      "class_index": 2,
+      "confidence": 0.3761,
+      "confidence_percentage": "37.61%",
+      "is_rejected": true,
+      "top3": [
+        {
+          "rank": 1,
+          "class_name": "Healthy Leaf",
+          "probability": 0.3760617971420288,
+          "percentage": "37.61%"
+        },
+        {
+          "rank": 2,
+          "class_name": "Bacterial Blight",
+          "probability": 0.2423878014087677,
+          "percentage": "24.24%"
+        },
+        {
+          "rank": 3,
+          "class_name": "Herbicide Growth Damage",
+          "probability": 0.17875859141349792,
+          "percentage": "17.88%"
+        }
+      ]
+    },
+    {
+      "file": "leaf_3.jpg",
+      "predicted_class": "Undetermined / OOD",
+      "class_index": 2,
+      "confidence": 0.5162,
+      "confidence_percentage": "51.62%",
+      "is_rejected": true,
+      "top3": [
+        {
+          "rank": 1,
+          "class_name": "Healthy Leaf",
+          "probability": 0.5161611437797546,
+          "percentage": "51.62%"
+        },
+        {
+          "rank": 2,
+          "class_name": "Bacterial Blight",
+          "probability": 0.22648361325263977,
+          "percentage": "22.65%"
+        },
+        {
+          "rank": 3,
+          "class_name": "Herbicide Growth Damage",
+          "probability": 0.11073008179664612,
+          "percentage": "11.07%"
+        }
+      ]
+    },
+    {
+      "file": "leaf_36.jpg",
+      "predicted_class": "Undetermined / OOD",
+      "class_index": 2,
+      "confidence": 0.3591,
+      "confidence_percentage": "35.91%",
+      "is_rejected": true,
+      "top3": [
+        {
+          "rank": 1,
+          "class_name": "Healthy Leaf",
+          "probability": 0.3591266870498657,
+          "percentage": "35.91%"
+        },
+        {
+          "rank": 2,
+          "class_name": "Bacterial Blight",
+          "probability": 0.2922758162021637,
+          "percentage": "29.23%"
+        },
+        {
+          "rank": 3,
+          "class_name": "Herbicide Growth Damage",
+          "probability": 0.12808354198932648,
+          "percentage": "12.81%"
+        }
+      ]
+    },
+    {
+      "file": "leaf_4.jpg",
+      "predicted_class": "Undetermined / OOD",
+      "class_index": 2,
+      "confidence": 0.4756,
+      "confidence_percentage": "47.56%",
+      "is_rejected": true,
+      "top3": [
+        {
+          "rank": 1,
+          "class_name": "Healthy Leaf",
+          "probability": 0.47564637660980225,
+          "percentage": "47.56%"
+        },
+        {
+          "rank": 2,
+          "class_name": "Bacterial Blight",
+          "probability": 0.20830842852592468,
+          "percentage": "20.83%"
+        },
+        {
+          "rank": 3,
+          "class_name": "Leaf Redding",
+          "probability": 0.105125792324543,
+          "percentage": "10.51%"
+        }
+      ]
+    },
+    {
+      "file": "leaf_5.jpg",
+      "predicted_class": "Undetermined / OOD",
+      "class_index": 0,
+      "confidence": 0.3514,
+      "confidence_percentage": "35.14%",
+      "is_rejected": true,
+      "top3": [
+        {
+          "rank": 1,
+          "class_name": "Bacterial Blight",
+          "probability": 0.35135912895202637,
+          "percentage": "35.14%"
+        },
+        {
+          "rank": 2,
+          "class_name": "Healthy Leaf",
+          "probability": 0.29034224152565,
+          "percentage": "29.03%"
+        },
+        {
+          "rank": 3,
+          "class_name": "Leaf Redding",
+          "probability": 0.14195077121257782,
+          "percentage": "14.20%"
+        }
+      ]
+    },
+    {
+      "file": "leaf_6.jpg",
+      "predicted_class": "Undetermined / OOD",
+      "class_index": 0,
+      "confidence": 0.3335,
+      "confidence_percentage": "33.35%",
+      "is_rejected": true,
+      "top3": [
+        {
+          "rank": 1,
+          "class_name": "Bacterial Blight",
+          "probability": 0.33353087306022644,
+          "percentage": "33.35%"
+        },
+        {
+          "rank": 2,
+          "class_name": "Healthy Leaf",
+          "probability": 0.3025082051753998,
+          "percentage": "30.25%"
+        },
+        {
+          "rank": 3,
+          "class_name": "Leaf Redding",
+          "probability": 0.17478452622890472,
+          "percentage": "17.48%"
+        }
+      ]
+    },
+    {
+      "file": "leaf_7.jpg",
+      "predicted_class": "Undetermined / OOD",
+      "class_index": 2,
+      "confidence": 0.4697,
+      "confidence_percentage": "46.97%",
+      "is_rejected": true,
+      "top3": [
+        {
+          "rank": 1,
+          "class_name": "Healthy Leaf",
+          "probability": 0.4697209894657135,
+          "percentage": "46.97%"
+        },
+        {
+          "rank": 2,
+          "class_name": "Bacterial Blight",
+          "probability": 0.19288530945777893,
+          "percentage": "19.29%"
+        },
+        {
+          "rank": 3,
+          "class_name": "Herbicide Growth Damage",
+          "probability": 0.16149015724658966,
+          "percentage": "16.15%"
+        }
+      ]
+    },
+    {
+      "file": "leaf_8.jpg",
+      "predicted_class": "Undetermined / OOD",
+      "class_index": 2,
+      "confidence": 0.3472,
+      "confidence_percentage": "34.72%",
+      "is_rejected": true,
+      "top3": [
+        {
+          "rank": 1,
+          "class_name": "Healthy Leaf",
+          "probability": 0.34720364212989807,
+          "percentage": "34.72%"
+        },
+        {
+          "rank": 2,
+          "class_name": "Bacterial Blight",
+          "probability": 0.31475359201431274,
+          "percentage": "31.48%"
+        },
+        {
+          "rank": 3,
+          "class_name": "Herbicide Growth Damage",
+          "probability": 0.15793520212173462,
+          "percentage": "15.79%"
+        }
+      ]
+    },
+    {
+      "file": "leaf_9.jpg",
+      "predicted_class": "Undetermined / OOD",
+      "class_index": 2,
+      "confidence": 0.3839,
+      "confidence_percentage": "38.39%",
+      "is_rejected": true,
+      "top3": [
+        {
+          "rank": 1,
+          "class_name": "Healthy Leaf",
+          "probability": 0.38394784927368164,
+          "percentage": "38.39%"
+        },
+        {
+          "rank": 2,
+          "class_name": "Bacterial Blight",
+          "probability": 0.3314284384250641,
+          "percentage": "33.14%"
+        },
+        {
+          "rank": 3,
+          "class_name": "Herbicide Growth Damage",
+          "probability": 0.10942884534597397,
+          "percentage": "10.94%"
+        }
+      ]
+    }
+  ]
+}

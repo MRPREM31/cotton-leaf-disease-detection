@@ -1,0 +1,21 @@
+Sample_Name,Ground_Truth_Type,System_Decision,Classification_Outcome,Rejection_Reason,Top_Class_Assigned,Confidence
+cotton_leaf_leaf_10.jpg,Positive (Cotton Leaf),REJECTED,FN,Image has severe glare or overexposure.,Undetermined / OOD,0.4148
+cotton_leaf_leaf_11.jpg,Positive (Cotton Leaf),REJECTED,FN,Image has severe glare or overexposure.,Undetermined / OOD,0.4025
+cotton_leaf_leaf_13.jpg,Positive (Cotton Leaf),REJECTED,FN,Image has severe glare or overexposure.,Undetermined / OOD,0.4808
+cotton_leaf_leaf_2.jpg,Positive (Cotton Leaf),REJECTED,FN,Image has severe glare or overexposure.,Undetermined / OOD,0.3761
+cotton_leaf_leaf_3.jpg,Positive (Cotton Leaf),REJECTED,FN,Image has severe glare or overexposure.,Undetermined / OOD,0.5162
+cotton_leaf_leaf_36.jpg,Positive (Cotton Leaf),REJECTED,FN,Image has severe glare or overexposure.,Undetermined / OOD,0.3591
+cotton_leaf_leaf_4.jpg,Positive (Cotton Leaf),REJECTED,FN,Image has severe glare or overexposure.,Undetermined / OOD,0.4756
+cotton_leaf_leaf_5.jpg,Positive (Cotton Leaf),REJECTED,FN,Image has severe glare or overexposure.,Undetermined / OOD,0.3514
+cotton_leaf_leaf_6.jpg,Positive (Cotton Leaf),REJECTED,FN,Image has severe glare or overexposure.,Undetermined / OOD,0.3335
+cotton_leaf_leaf_7.jpg,Positive (Cotton Leaf),REJECTED,FN,Image has severe glare or overexposure.,Undetermined / OOD,0.4697
+rice_paddy_narrow_blade,Negative (OOD / Non-Cotton),ACCEPTED,FP,None (Passed Gatekeeper),Bacterial Blight,0.5885
+maize_corn_parallel_leaf,Negative (OOD / Non-Cotton),ACCEPTED,FP,None (Passed Gatekeeper),Bacterial Blight,0.5685
+tomato_serrated_foliage,Negative (OOD / Non-Cotton),ACCEPTED,FP,None (Passed Gatekeeper),Bacterial Blight,0.5842
+chilli_smooth_ovate_leaf,Negative (OOD / Non-Cotton),ACCEPTED,FP,None (Passed Gatekeeper),Bacterial Blight,0.5494
+okra_malvaceae_noncotton,Negative (OOD / Non-Cotton),ACCEPTED,FP,None (Passed Gatekeeper),Leaf Variegation,0.9773
+agricultural_soil_brown,Negative (OOD / Non-Cotton),REJECTED,TN,Image is too blurry for reliable clinical diagnosis.,Undetermined / OOD,0.4821
+human_hand_skin_tone,Negative (OOD / Non-Cotton),REJECTED,TN,Image is too blurry for reliable clinical diagnosis.,Undetermined / OOD,0.4949
+farmer_blue_shirt_cloth,Negative (OOD / Non-Cotton),REJECTED,TN,Image is too blurry for reliable clinical diagnosis.,Undetermined / OOD,0.5326
+pure_black_underexposed,Negative (OOD / Non-Cotton),REJECTED,TN,Image is too dark to resolve leaf symptoms.,Undetermined / OOD,0.5279
+pure_white_glare,Negative (OOD / Non-Cotton),REJECTED,TN,Image has severe glare or overexposure.,Undetermined / OOD,0.5342

@@ -1,0 +1,3 @@
+Dataset_Identifier,Images_Evaluated,Accuracy,Macro_F1,Status,Generalization_Gap
+SAR-CLD-2024 (Internal Held-Out Test Set),214,98.60%,98.60%,EVALUATED (Primary Benchmark),0.00% (Baseline Reference)
+Secondary External Cotton Dataset (PlantVillage / Kaggle Cross-Domain),0,NOT TESTED,NOT TESTED,EXTERNAL DATASET REQUIRED (Not provided in local workspace),NOT AVAILABLE
