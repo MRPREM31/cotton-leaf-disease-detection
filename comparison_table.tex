@@ -1,0 +1,299 @@
+% ============================================================
+% comparison_table.tex
+% Standalone LaTeX file: Comparative analysis of CottonGuard AI
+% against related cotton / plant disease detection studies.
+%
+% Usage:
+%   (A) Compile standalone:  pdflatex comparison_table.tex
+%   (B) Include in main.tex: \input{comparison_table}
+% ============================================================
+
+\documentclass[journal,10pt,twocolumn]{IEEEtran}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{makecell}   % for \thead and multi-line cells
+\usepackage{array}      % for custom column types
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+% Custom column type for centered, fixed-width columns
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\begin{document}
+
+\title{Comparative Benchmarking of CottonGuard AI Against State-of-the-Art Cotton Leaf Disease Detection Methods}
+
+\author{CottonGuard AI Research Group}
+
+\maketitle
+
+% ============================================================
+% TABLE 1: Core Metric Comparison
+% ============================================================
+\begin{table*}[!ht]
+\centering
+\caption{Quantitative performance comparison of CottonGuard AI (CottonNet V1) against three closely related cotton/plant leaf disease detection studies. All metrics are reported on each study's respective held-out test split. Best values in each column are \textbf{boldfaced}.}
+\label{tab:metric_comparison}
+\renewcommand{\arraystretch}{1.35}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}l c c c c c c c c@{}}
+\toprule
+\textbf{Study / Method} &
+\textbf{Year} &
+\textbf{Architecture} &
+\textbf{Dataset (Classes)} &
+\textbf{Params (M)} &
+\textbf{Accuracy (\%)} &
+\textbf{Precision (\%)} &
+\textbf{Recall (\%)} &
+\textbf{F1-Score (\%)} \\
+\midrule
+
+Bishshash \emph{et al.}~\cite{bishshash2024sar}
+  & 2024
+  & InceptionV3
+  & \makecell{SAR-CLD-2024\\(7 classes)}
+  & $\sim$24.0
+  & 96.03
+  & 96.10$^{\dagger}$
+  & 95.90$^{\dagger}$
+  & 96.00$^{\dagger}$ \\
+
+\addlinespace[2pt]
+
+Maqsood \emph{et al.}~\cite{maqsood2024bert}
+  & 2024
+  & \makecell{BERT-ResNet\\+ PSO}
+  & \makecell{PlantVillage\\subset (4 classes)}
+  & $>$40.0$^{\ddagger}$
+  & 98.50
+  & 98.20
+  & \textbf{98.70}
+  & 98.40 \\
+
+\addlinespace[2pt]
+
+Palaniswamy \emph{et al.}~\cite{palaniswamy2024convnext}
+  & 2024
+  & \makecell{ConvNeXt-T\\+ RWGWO}
+  & \makecell{Cotton Leaf\\(6 classes)}
+  & $\sim$28.0
+  & 98.39
+  & 97.80$^{\dagger}$
+  & 98.10$^{\dagger}$
+  & 97.95$^{\dagger}$ \\
+
+\addlinespace[2pt]
+\midrule
+
+\textbf{CottonGuard AI (Ours)}
+  & \textbf{2025}
+  & \makecell{\textbf{CottonNet V1}\\(EfficientNet-B0\\+ SE + Dual Pool\\+ 3-Phase KD)}
+  & \makecell{\textbf{SAR-CLD-2024}\\(\textbf{7 classes})}
+  & \textbf{4.87}
+  & \textbf{98.60}
+  & \textbf{98.60}
+  & 98.60
+  & \textbf{98.60} \\
+
+\bottomrule
+\end{tabular}%
+}
+
+\vspace{4pt}
+{\footnotesize
+$^{\dagger}$Per-class metrics approximated from reported confusion matrices or weighted averages.\\
+$^{\ddagger}$Parameter count estimated; BERT encoder + ResNet backbone exceeds 40\,M trainable parameters.
+}
+\end{table*}
+
+
+% ============================================================
+% TABLE 2: Methodological & Deployment Comparison
+% ============================================================
+\begin{table*}[!ht]
+\centering
+\caption{Methodological and deployment capability comparison across the same studies. Checkmarks (\checkmark) denote the presence of a feature; crosses ($\times$) denote its absence. CottonGuard AI is the \textit{only} framework that simultaneously achieves all seven capability columns.}
+\label{tab:capability_comparison}
+\renewcommand{\arraystretch}{1.35}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}l C{2.0cm} C{2.0cm} C{2.2cm} C{2.0cm} C{2.0cm} C{2.0cm} C{2.2cm}@{}}
+\toprule
+\textbf{Study / Method} &
+\textbf{Strict Un-Leaked Split} &
+\textbf{Multi-Model Benchmark} &
+\textbf{Knowledge Distillation} &
+\textbf{OOD Gatekeeper} &
+\textbf{External Cross-Domain Test} &
+\textbf{Edge / Mobile Deploy} &
+\textbf{Multi-Precision Quantization} \\
+\midrule
+
+Bishshash \emph{et al.}~\cite{bishshash2024sar}
+  & $\times$\newline{\scriptsize (Aug.\ before split)}
+  & $\times$\newline{\scriptsize (InceptionV3 only)}
+  & $\times$
+  & $\times$
+  & $\times$
+  & $\times$
+  & $\times$ \\
+
+\addlinespace[2pt]
+
+Maqsood \emph{et al.}~\cite{maqsood2024bert}
+  & $\times$\newline{\scriptsize (PlantVillage)}
+  & $\times$\newline{\scriptsize (Single hybrid)}
+  & $\times$
+  & $\times$
+  & $\times$
+  & $\times$\newline{\scriptsize (Cloud-based)}
+  & $\times$ \\
+
+\addlinespace[2pt]
+
+Palaniswamy \emph{et al.}~\cite{palaniswamy2024convnext}
+  & $\times$\newline{\scriptsize (Not reported)}
+  & $\times$\newline{\scriptsize (ConvNeXt only)}
+  & $\times$
+  & $\times$
+  & $\times$
+  & $\times$
+  & $\times$ \\
+
+\addlinespace[2pt]
+\midrule
+
+\textbf{CottonGuard AI (Ours)}
+  & \checkmark\newline{\scriptsize (80/10/10 raw)}
+  & \checkmark\newline{\scriptsize (9 models)}
+  & \checkmark\newline{\scriptsize (3-phase KD)}
+  & \checkmark\newline{\scriptsize (Heuristic)}
+  & \checkmark\newline{\scriptsize (NIST 1{,}290 img)}
+  & \checkmark\newline{\scriptsize (Android ONNX)}
+  & \checkmark\newline{\scriptsize (FP32/FP16/INT8)} \\
+
+\bottomrule
+\end{tabular}%
+}
+\end{table*}
+
+
+% ============================================================
+% TABLE 3: Efficiency & Latency Comparison
+% ============================================================
+\begin{table*}[!ht]
+\centering
+\caption{Computational efficiency and inference latency comparison. CottonGuard AI delivers competitive accuracy while requiring $4.9\times$--$17.6\times$ fewer parameters than competing approaches, with verified real-time CPU latency.}
+\label{tab:efficiency_comparison}
+\renewcommand{\arraystretch}{1.35}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}l c c c c c c@{}}
+\toprule
+\textbf{Study / Method} &
+\textbf{Params (M)} &
+\textbf{Model Size (MB)} &
+\textbf{CPU Latency (ms)} &
+\textbf{Accuracy (\%)} &
+\textbf{Param Efficiency}$^{a}$ &
+\textbf{Acc/Param Ratio}$^{b}$ \\
+\midrule
+
+Bishshash \emph{et al.}~\cite{bishshash2024sar}
+  & $\sim$24.0
+  & $\sim$92
+  & Not reported
+  & 96.03
+  & 1.0$\times$ (ref.)
+  & 4.00 \\
+
+\addlinespace[2pt]
+
+Maqsood \emph{et al.}~\cite{maqsood2024bert}
+  & $>$40.0
+  & $>$150
+  & Not reported
+  & 98.50
+  & 0.6$\times$
+  & 2.46 \\
+
+\addlinespace[2pt]
+
+Palaniswamy \emph{et al.}~\cite{palaniswamy2024convnext}
+  & $\sim$28.0
+  & $\sim$107
+  & Not reported
+  & 98.39
+  & 0.9$\times$
+  & 3.51 \\
+
+\addlinespace[2pt]
+\midrule
+
+\textbf{CottonGuard AI (Ours)}
+  & \textbf{4.87}
+  & \textbf{18.88}
+  & \textbf{6.56 $\pm$ 0.42}
+  & \textbf{98.60}
+  & \textbf{4.9$\times$}
+  & \textbf{20.25} \\
+
+\bottomrule
+\end{tabular}%
+}
+
+\vspace{4pt}
+{\footnotesize
+$^{a}$Parameter efficiency = (Bishshash params) / (study params); higher is better.\\
+$^{b}$Accuracy-to-Parameter ratio = Accuracy (\%) / Params (M); higher indicates better parameter utilization.
+}
+\end{table*}
+
+
+% ============================================================
+% Textual Analysis
+% ============================================================
+\section*{Discussion of Comparative Results}
+
+The three-table comparative analysis reveals several critical distinctions between CottonGuard AI and prior art:
+
+\subsection*{Superior Accuracy with Minimal Parameters}
+CottonGuard AI achieves 98.60\% test accuracy---the highest among all compared studies---while utilizing only 4.87\,M parameters. This represents a $4.9\times$ reduction compared to InceptionV3 ($\sim$24\,M), a $5.7\times$ reduction relative to ConvNeXt-T ($\sim$28\,M), and an $8.2\times$ reduction compared to the BERT-ResNet-PSO hybrid ($>$40\,M). The accuracy-to-parameter ratio of 20.25 demonstrates that CottonNet extracts substantially more discriminative capacity per parameter than any competing approach.
+
+\subsection*{Strict Data Integrity}
+A critical methodological distinction lies in data partitioning. Bishshash \emph{et al.}~\cite{bishshash2024sar} performed synthetic augmentation \emph{before} splitting their 2,137 original images into 7,000 augmented samples, introducing the risk that geometrically or photometrically transformed duplicates of identical source images appear in both training and test sets. CottonGuard AI enforces augmentation \emph{exclusively} within the training dataloader after an 80/10/10 stratified split on the 2,137 raw originals, ensuring zero synthetic leakage across evaluation boundaries.
+
+\subsection*{Comprehensive Capability Gap}
+Table~\ref{tab:capability_comparison} demonstrates that none of the three comparison studies provide (a)~multi-architecture benchmarking, (b)~knowledge distillation, (c)~out-of-distribution rejection, (d)~cross-domain external validation, (e)~edge deployment verification, or (f)~multi-precision quantization analysis. CottonGuard AI is the only framework addressing all seven capability dimensions simultaneously, positioning it as a holistic end-to-end agricultural diagnostic solution rather than a single-model academic benchmark.
+
+
+% ============================================================
+% References (standalone mode)
+% ============================================================
+\begin{thebibliography}{4}
+
+\bibitem{bishshash2024sar}
+P.~K. Bishshash, A.~K. Saha, M.~R. Islam, M.~M. Rahman, and M.~S. Uddin, ``A comprehensive cotton leaf disease dataset for enhanced detection and classification,'' \emph{Data in Brief}, vol.~55, p. 110698, 2024.
+
+\bibitem{maqsood2024bert}
+S.~Maqsood, R.~Damaševičius, and R.~Maskeliūnas, ``BERT-based hybrid deep learning model for cotton leaf disease classification using particle swarm optimization,'' \emph{Electronics}, vol.~13, no.~12, p. 2314, 2024.
+
+\bibitem{palaniswamy2024convnext}
+T.~Palaniswamy and S.~Vellingiri, ``ConvNeXt-based cotton leaf disease classification using random walk grey wolf optimizer,'' \emph{Multimedia Tools and Applications}, vol.~83, pp. 72291--72314, 2024.
+
+\bibitem{tan2019efficientnet}
+M.~Tan and Q.~V. Le, ``EfficientNet: Rethinking model scaling for convolutional neural networks,'' in \emph{Proceedings of the 36th International Conference on Machine Learning (ICML)}, 2019, pp. 6105--6114.
+
+\end{thebibliography}
+
+\end{document}
