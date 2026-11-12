@@ -56,7 +56,8 @@ data class ScanHistoryItem(
     val className: String,
     val confidence: Float,
     val latencyMs: Long,
-    val bitmap: Bitmap?
+    val bitmap: Bitmap?,
+    val modelUsed: String = "CottonNet V1"
 )
 
 data class DiseaseDetails(
@@ -340,6 +341,7 @@ fun CottonGuardApp(classifier: CottonNetClassifier) {
     val context = LocalContext.current
     var selectedTab by remember { mutableStateOf(0) }
     var selectedLanguage by remember { mutableStateOf("en") }
+    var selectedModelProfile by remember { mutableStateOf(CottonNetClassifier.ModelProfile.COTTONNET_EDGE) }
     var diagnosisResult by remember { mutableStateOf<CottonNetClassifier.Recognition?>(null) }
     var selectedImage by remember { mutableStateOf<Bitmap?>(null) }
     val historyList = remember { mutableStateListOf<ScanHistoryItem>() }
@@ -349,7 +351,8 @@ fun CottonGuardApp(classifier: CottonNetClassifier) {
         selectedImage = bitmap
         isAnalyzing = true
         try {
-            val result = classifier.classify(bitmap)
+            classifier.activeProfile = selectedModelProfile
+            val result = classifier.classify(bitmap, selectedModelProfile)
             diagnosisResult = result
             val timeString = SimpleDateFormat("dd MMM, hh:mm a", Locale.getDefault()).format(Date())
             historyList.add(
@@ -359,7 +362,8 @@ fun CottonGuardApp(classifier: CottonNetClassifier) {
                     className = result.className,
                     confidence = result.confidence,
                     latencyMs = result.latencyMs,
-                    bitmap = bitmap
+                    bitmap = bitmap,
+                    modelUsed = result.modelUsed
                 )
             )
         } catch (e: Exception) {
@@ -527,6 +531,8 @@ fun CottonGuardApp(classifier: CottonNetClassifier) {
                     diagnosisResult = diagnosisResult,
                     isAnalyzing = isAnalyzing,
                     selectedLanguage = selectedLanguage,
+                    selectedModelProfile = selectedModelProfile,
+                    onModelProfileChange = { profile -> selectedModelProfile = profile },
                     onProcessImage = { bitmap -> processImage(bitmap) },
                     onClearImage = {
                         selectedImage = null
@@ -556,6 +562,8 @@ fun ScanScreen(
     diagnosisResult: CottonNetClassifier.Recognition?,
     isAnalyzing: Boolean,
     selectedLanguage: String,
+    selectedModelProfile: CottonNetClassifier.ModelProfile,
+    onModelProfileChange: (CottonNetClassifier.ModelProfile) -> Unit,
     onProcessImage: (Bitmap) -> Unit,
     onClearImage: () -> Unit
 ) {
@@ -612,6 +620,74 @@ fun ScanScreen(
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
+        // ==================== MODEL ENGINE SELECTOR ====================
+        Surface(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(16.dp),
+            color = Color(0xFF101924),
+            border = BorderStroke(1.dp, Color(0xFF1E293B))
+        ) {
+            Column(modifier = Modifier.padding(12.dp)) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text("🧠", fontSize = 14.sp)
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(
+                            "AI INFERENCE ENGINE",
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.ExtraBold,
+                            color = Color(0xFF38BDF8),
+                            letterSpacing = 1.sp
+                        )
+                    }
+                    Text(
+                        selectedModelProfile.accuracy,
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF34D399)
+                    )
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+                LazyRow(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    items(CottonNetClassifier.ModelProfile.values()) { profile ->
+                        val isSelected = selectedModelProfile == profile
+                        Surface(
+                            shape = RoundedCornerShape(12.dp),
+                            color = if (isSelected) Color(0xFF10B981).copy(alpha = 0.2f) else Color(0xFF0F172A),
+                            border = BorderStroke(
+                                1.5.dp,
+                                if (isSelected) Color(0xFF10B981) else Color(0xFF334155)
+                            ),
+                            modifier = Modifier.clickable { onModelProfileChange(profile) }
+                        ) {
+                            Column(modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp)) {
+                                Text(
+                                    profile.displayName,
+                                    fontSize = 11.sp,
+                                    fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
+                                    color = if (isSelected) Color.White else Color(0xFF94A3B8)
+                                )
+                                Text(
+                                    profile.badge,
+                                    fontSize = 9.sp,
+                                    color = if (isSelected) Color(0xFF34D399) else Color(0xFF64748B)
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        Spacer(modifier = Modifier.height(14.dp))
 
         // ==================== VIEWFINDER CARD ====================
         Card(
@@ -881,7 +957,7 @@ fun ScanScreen(
                             color = Color(0xFF1E293B)
                         ) {
                             Text(
-                                "⚡ Latency: ${diagnosisResult.latencyMs} ms",
+                                "⚡ ${diagnosisResult.modelUsed} • ${diagnosisResult.latencyMs} ms",
                                 modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
                                 color = Color(0xFFCBD5E1),
                                 fontSize = 11.sp,
@@ -1219,7 +1295,8 @@ fun HistoryScreen(
 
                             Column(modifier = Modifier.weight(1f)) {
                                 Text(item.className, fontWeight = FontWeight.Bold, color = Color.White, fontSize = 15.sp)
-                                Text("${item.timestamp} • ${item.latencyMs}ms", color = Color(0xFF64748B), fontSize = 11.sp)
+                                Text("${item.modelUsed} • ${(item.confidence * 100).toInt()}% • ${item.latencyMs}ms", color = Color(0xFF34D399), fontSize = 11.sp, fontWeight = FontWeight.SemiBold)
+                                Text(item.timestamp, color = Color(0xFF64748B), fontSize = 10.sp)
                             }
 
                             Surface(
@@ -1262,9 +1339,9 @@ fun BenchmarkScreen() {
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            MetricCard(title = "Test F1 Score", value = "98.60%", subtitle = "SAR-CLD-2024", modifier = Modifier.weight(1f))
-            MetricCard(title = "Parameters", value = "4.87 M", subtitle = "Lightweight", modifier = Modifier.weight(1f))
-            MetricCard(title = "Edge INT8", value = "5.18 MB", subtitle = "Quantized", modifier = Modifier.weight(1f))
+            MetricCard(title = "Edge Tier Acc", value = "98.60%", subtitle = "CottonNet (4.87M)", modifier = Modifier.weight(1f))
+            MetricCard(title = "Flagship Tier", value = "99.53%", subtitle = "Ensemble SOTA", modifier = Modifier.weight(1f))
+            MetricCard(title = "CPU Latency", value = "6.56 ms", subtitle = "ONNX Runtime", modifier = Modifier.weight(1f))
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -1276,14 +1353,15 @@ fun BenchmarkScreen() {
             border = BorderStroke(1.dp, Color(0xFF1E293B))
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
-                Text("Model Architecture Benchmark", fontWeight = FontWeight.Bold, color = Color.White, fontSize = 15.sp)
+                Text("Nine-Model Empirical Benchmark (Un-leaked Split)", fontWeight = FontWeight.Bold, color = Color.White, fontSize = 15.sp)
                 Spacer(modifier = Modifier.height(12.dp))
 
-                ComparisonRow(model = "CottonNet (Ours)", params = "4.87M", f1 = "98.60%", isHighlighted = true)
-                ComparisonRow(model = "DenseNet-121", params = "7.98M", f1 = "97.40%", isHighlighted = false)
-                ComparisonRow(model = "MobileNetV3-Large", params = "5.48M", f1 = "96.80%", isHighlighted = false)
-                ComparisonRow(model = "ResNet-50", params = "25.6M", f1 = "97.10%", isHighlighted = false)
-                ComparisonRow(model = "EfficientNet-B0", params = "5.29M", f1 = "96.50%", isHighlighted = false)
+                ComparisonRow(model = "CottonGuard Ensemble (Flagship)", params = "11.83M", f1 = "99.53%", isHighlighted = true)
+                ComparisonRow(model = "CottonNet V1 (Edge Tier)", params = "4.87M", f1 = "98.60%", isHighlighted = true)
+                ComparisonRow(model = "DenseNet-121 (Teacher)", params = "6.96M", f1 = "96.26%", isHighlighted = false)
+                ComparisonRow(model = "MobileNetV3-Large", params = "4.21M", f1 = "95.79%", isHighlighted = false)
+                ComparisonRow(model = "EfficientNet-B0", params = "4.02M", f1 = "95.33%", isHighlighted = false)
+                ComparisonRow(model = "ResNet-50", params = "23.52M", f1 = "93.93%", isHighlighted = false)
             }
         }
 
