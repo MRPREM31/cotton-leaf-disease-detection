@@ -653,6 +653,34 @@ Because $x_{\max}$ is driven to extreme values by the max-pooling operation, the
 
 \textbf{Scientific Recommendation:} Production deployments must utilize \textbf{FP32 or FP16 ONNX runtimes} unless Quantization-Aware Training (QAT) \cite{krishnamoorthi2018quantizing} with per-channel clamp bounds is explicitly incorporated during the distillation phase.
 
+\subsection{Tiered Deployment Architecture: Edge-Optimal CottonNet vs. Flagship Transformer Ensemble}
+To accommodate heterogeneous agricultural deployment scenarios ranging from entry-level field smartphones to high-performance tablets and regional server hubs, CottonGuard AI formulates a \textbf{two-tier deployment hierarchy}:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Tier 1: Ultra-Lightweight Edge Profile (CottonNet V1):} Geared toward ultra-low-cost smartphones (e.g., budget MediaTek Helio or Qualcomm Snapdragon 400-series chipsets) operating completely offline without cellular network availability. By utilizing the distilled CottonNet architecture (4.87M parameters, 18.56\,MB FP32 ONNX runtime binary), Tier~1 delivers \textbf{98.60\% test accuracy} and an ultra-fast \textbf{6.56~ms CPU latency}, requiring zero cloud connectivity.
+    \item \textbf{Tier 2: Flagship / Cloud-Assisted Ensemble Profile (CottonNet + ViT-B/16):} Geared toward premium edge hardware equipped with modern Neural Processing Units (NPUs) or cooperative desktop stations. This profile deploys a dual-paradigm soft-voting ensemble coupling CottonNet's local spatial lesion extractor with a Vision Transformer (ViT-B/16, 85.80M parameters) capturing long-range global self-attention across the whole foliar canopy:
+    \begin{equation}
+    P_{\text{ensemble}}(y=c \mid \mathbf{x}) = \lambda P_{\text{CottonNet}}(y=c \mid \mathbf{x}) + (1-\lambda) P_{\text{ViT}}(y=c \mid \mathbf{x})
+    \end{equation}
+    where $\lambda = 0.5$. Because convolutional representations and self-attention patch embeddings exhibit complementary, orthogonal failure distributions, this ensemble resolves marginal boundary ambiguities between early bacterial lesions and fungal necrosis, reaching a peak validation accuracy of \textbf{99.53\%} and a macro F1-score of \textbf{99.58\%}.
+\end{itemize}
+
+\begin{table}[ht]
+\centering
+\caption{Tiered edge-versus-flagship architectural specifications.}
+\label{tab:tiered_deployment}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Deployment Tier} & \textbf{Target Hardware} & \textbf{Model Topology} & \textbf{Accuracy} & \textbf{Params} \\
+\midrule
+\textbf{Tier 1 (Edge)} & Budget Android (Offline) & CottonNet V1 (Distilled) & 98.60\% & 4.87M \\
+\textbf{Tier 2 (Flagship)} & Modern NPU / Cooperative & CottonNet + ViT Ensemble & \textbf{99.53\%} & 90.67M \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
 \subsection{Android Native Runtime Implementation via ONNX Mobile}
 To demonstrate field deployment viability, we implement a native mobile application (\textbf{CottonGuard Android}) designed for offline edge devices:
 \begin{itemize}[leftmargin=*]
